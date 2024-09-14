@@ -1,5 +1,46 @@
 .header {
-
-
-   
+    &__sections-padding {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    &__top-block {
+        border-bottom: 1px solid var(--light-border);
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__nav-link {
+        &_active {
+            color: var(--green) !important;
+            pointer-events: none;
+        }
+    }
+    &__user-block {
+        width: fit-content;
+    }
+    &__user-block-link {
+        align-items: center;
+    }
+    &__bottom-block {
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    &__logo-img {
+        max-height: 70px;
+        max-width: 290px;
+    }
+    &__numbers-holder {
+        padding-left: 6px;
+    }
+    &__actions-holder {
+        justify-content: space-between;
+        padding-left: 6px;
+    }
+    &__action {
+        align-items: center;
+    }
+    &__right-content {
+        justify-content: space-around;
+        flex: 1;
+    }
 }

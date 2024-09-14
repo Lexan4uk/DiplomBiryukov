@@ -2,12 +2,12 @@
 @import 'variables';
 
 * {
-  color: var(--white);
+  color: var(--black);
   font-family: "Bender";
 }
 
 #root {
-  background: var(--black);
+  background: var(--white);
   position: relative;
 }
 body {
@@ -18,14 +18,104 @@ main {
 }
 
 .block-normalizer {
-  width: 100%;
+  max-width: 1024px;
   display: flex;
   padding-left: 16px;
   padding-right: 16px;
   margin: 0 auto;
 }
+.f-column {
+  display: flex;
+  flex-direction: column;
+}
 
+.f-row {
+  display: flex;
+}
+.gap-16 {
+  gap: 16px;
+}
+.gap-10 {
+  gap: 10px;
+}
+.gap-4 {
+  gap: 4px;
+}
+.text-link {
+  transition: all 0.2s;
+  &:hover {
+    color: var(--green);
+  }
+}
 .title-l {
+  font-family: 'Bender';
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: uppercase;
+}
+
+.title-m {
+  font-family: 'Bender';
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+
+}
+
+.title-s {
+  font-family: 'Bender';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+
+}
+.text-xl {
+  font-family: 'Brutal Type';
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+}
+.text-l {
+  font-family: 'Brutal Type';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-m {
+  font-family: 'Brutal Type';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+.text-s {
+  font-family: 'Brutal Type';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+.text-xs {
+  font-family: 'Brutal Type';
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
+.text-menu {
+  font-family: 'Brutal Type';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+}
+.simple-button {
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+/*.title-l {
   font-family: 'Bender';
   font-weight: 700;
   font-size: 28px;
@@ -129,7 +219,6 @@ main {
   padding-bottom: 11px;
   clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
 
-  /* Обрезка углов */
   &_uncative {
     opacity: 0.7;
     pointer-events: none;
@@ -156,22 +245,4 @@ main {
   &_slice-left {
     background: linear-gradient(50grad, transparent 10px, var(--button-color) 0) ;
   }
-}
-
-.f-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.f-row {
-  display: flex;
-}
-.gap-16 {
-  gap: 16px;
-}
-.gap-4 {
-  gap: 4px;
-}
-.bg-yellow {
-  background: var(--yellow);
-}
+}*/

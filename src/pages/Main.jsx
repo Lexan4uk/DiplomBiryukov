@@ -10,7 +10,7 @@ function Main() {
 
   return (
     <>
-      <Header />
+      <Header active={1}/>
       <main className="main-catalog">
         
       </main>
