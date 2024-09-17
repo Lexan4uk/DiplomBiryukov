@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import HeaderOption from '@components/cards/HeaderOption'
 import logo from "@images/header/logo.png"
-import { Dialog, DialogPanel, DialogTitle, Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+import AuthPopup from "@components/popups/AuthPopup"
 
 function Header({ active }) {
     const {
@@ -29,14 +29,7 @@ function Header({ active }) {
                             {person()}
                             Войти
                         </button>
-                        <Dialog open={loginOpen} onClose={() => setLoginOpen(false)}>
-                            <div className="login-popup login-popup_bg f-column gap-10">
-                                <DialogPanel className="login-popup__main">
-                                    <DialogTitle> Вход</DialogTitle>
-                                    <button onClick={() => setLoginOpen(false)}>Закрыть</button>
-                                </DialogPanel>
-                            </div>
-                        </Dialog>
+                        <AuthPopup state={loginOpen} switcher={setLoginOpen}/>
                     </div>
                 </div>
                 <div className="header__bottom-block header__sections-padding f-row">
