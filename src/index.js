@@ -1,6 +1,4 @@
 import Main from '@pages/Main';
-import PhoneEnter from '@components/auth_elements/PhoneEnter';
-
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -24,7 +22,6 @@ root.render(
         <Router>
             <Routes>
               <Route path="/" element={<Main />} />
-              <Route path="/querry" element={<PhoneEnter />} />
             </Routes>
         </Router>
     </RecoilRoot>

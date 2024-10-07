@@ -25,6 +25,7 @@
     }
     &__undertitle {
         margin-bottom: 10px;
+        text-align: center;
     }
 
     &__close-btn {
@@ -35,13 +36,21 @@
     }
     &__input-block {
         margin-top: 16px;
-        height: 135px;
+        min-height: 135px;
     }
     &__input-holder {
         padding: 12px 20px;
         border: 1px solid var(--light-border);
         border-radius: 12px;
         position: relative;
+        &_code {
+            width: fit-content;
+            margin: 0 auto;
+            .auth-popup__input {
+                width: 90px;
+                margin: 0;
+            }
+        }
     }
     &__input {
         width: 100%;
@@ -49,6 +58,7 @@
         &:focus {
             outline: none;
         }
+
     }
     &__sumbit-button {
         margin-top: auto;
@@ -61,5 +71,9 @@
         top: 50%;
         transform: translateY(-50%);
         
+    }
+    &__back-button {
+        text-decoration: underline;
+        margin: 0 auto;
     }
 }
