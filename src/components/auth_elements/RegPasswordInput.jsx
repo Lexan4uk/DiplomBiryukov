@@ -1,7 +1,8 @@
 import '@styles/popups/AuthPopup.scss';
 import { useForm, FormProvider } from "react-hook-form";
 import { useState } from 'react';
-import { simplePost, apiTags } from '@api/simplePost'
+import { simplePost, apiTags as postTags } from "@api/simplePost"
+
 import getSvg from '@images/svg'
 
 
@@ -35,11 +36,23 @@ const RegPasswordInput = ({ setStep, setAuthData, authData }) => {
             setError("password", {
                 message: "Пароли не совпадают!"
             });
+
         }
-        console.log(data)
-
-
-
+        else {
+            const querryData = {
+                "email": authData.email,
+                "password": data.password
+            }
+            const response = await simplePost(postTags.register, querryData);
+            if (response.code === 200) {
+                setAuthData({})
+                setStep('successReg')
+            }
+            else {
+                setError("password", {message: `${response.message}`})
+            }
+            console.log(response)
+        }
         setIsQuerry(false)
     }
 
@@ -62,7 +75,7 @@ const RegPasswordInput = ({ setStep, setAuthData, authData }) => {
                         {errors["password"] ? errors["password"].message : errors["conf_password"].message}
                     </span>
                 )}
-                <button className={`auth-popup__sumbit-button profile-button ${false ? "button-inactive" : ""}`} onClick={handleSaveClick}>Создать аккаунт</button>
+                <button className={`auth-popup__sumbit-button profile-button ${isQuerry ? "button-inactive" : ""}`} onClick={handleSaveClick}>Создать аккаунт</button>
             </div>
         </FormProvider>
     )

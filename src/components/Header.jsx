@@ -1,11 +1,15 @@
 import '@styles/Header.scss';
 import getSvg from '@images/svg'
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import HeaderOption from '@components/cards/HeaderOption'
 import logo from "@images/header/logo.png"
 import AuthPopup from "@components/popups/AuthPopup"
+import ProfileMenuPopover from "@components/popups/ProfileMenuPopover"
+
+import useAuth from '@scripts/custom_hooks/useAuth';
+
 
 function Header({ active }) {
     const {
@@ -13,7 +17,12 @@ function Header({ active }) {
         clock,
         pin
     } = getSvg()
+    const {
+        isAuthorised,
+        accData,
+    } = useAuth()
     const [loginOpen, setLoginOpen] = useState(false)
+    const [profileOpen, setProfileOpen] = useState(false)
     return (
         <header className="header">
             <div className="header__container block-normalizer f-column">
@@ -25,11 +34,12 @@ function Header({ active }) {
                         <HeaderOption href="/" text="Отзывы" active={active === 4} />
                     </nav>
                     <div className="header__user-block">
-                        <button onClick={() => setLoginOpen(true)} className="header__user-block-link text-menu f-row gap-4 simple-button">
+                        {/*ЕБАНОЕ МЕСИВО ОБОСРАЛ ФУНКЦИЮ ОТКРЫТИЯ ПОПОВЕРА*/}
+                        <button onClick={() => {if (isAuthorised) setProfileOpen(prev => !prev); else setLoginOpen(true)}} className="header__user-block-link text-menu f-row gap-4 simple-button">
                             {person()}
-                            Войти
+                            {isAuthorised ? accData?.name : `Войти`}
                         </button>
-                        <AuthPopup state={loginOpen} switcher={setLoginOpen}/>
+                        {isAuthorised ? profileOpen && <ProfileMenuPopover /> : <AuthPopup state={loginOpen} loginSwitcher={setLoginOpen}/>}
                     </div>
                 </div>
                 <div className="header__bottom-block header__sections-padding f-row">
