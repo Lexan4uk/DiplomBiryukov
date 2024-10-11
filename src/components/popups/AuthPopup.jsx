@@ -19,7 +19,7 @@ const AuthPopup = ({ state, loginSwitcher }) => {
 
     return (
         <Dialog open={state} onClose={() => loginSwitcher(false)}>
-            <div className="auth-popup auth-popup_bg f-column gap-10">
+            <div className="auth-popup authp_bg f-column gap-10">
                 <DialogPanel className="auth-popup__main f-column">
                     <button className="auth-popup__close-btn simple-button" onClick={() => loginSwitcher(false)}>
                         {cross("var(--black)")}

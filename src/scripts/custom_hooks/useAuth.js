@@ -12,6 +12,11 @@ function useAuth() {
     const token = localStorage.getItem('token');
     if (!isAuthorised && token) {
       const responseLogin = await login();
+      if (responseLogin.code === 201) {
+        setIsAuthorised(false)
+        return
+      }
+      console.log(responseLogin)
       if (responseLogin) {
         setIsAuthorised(true);
         setAccData(responseLogin);

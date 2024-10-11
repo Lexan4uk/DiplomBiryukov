@@ -1,12 +1,13 @@
 import '@styles/Header.scss';
 import getSvg from '@images/svg'
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import HeaderOption from '@components/cards/HeaderOption'
 import logo from "@images/header/logo.png"
 import AuthPopup from "@components/popups/AuthPopup"
 import ProfileMenuPopover from "@components/popups/ProfileMenuPopover"
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 
 import useAuth from '@scripts/custom_hooks/useAuth';
 
@@ -34,17 +35,28 @@ function Header({ active }) {
                         <HeaderOption href="/" text="Отзывы" active={active === 4} />
                     </nav>
                     <div className="header__user-block">
-                        {/*ЕБАНОЕ МЕСИВО ОБОСРАЛ ФУНКЦИЮ ОТКРЫТИЯ ПОПОВЕРА*/}
-                        <button onClick={() => {if (isAuthorised) setProfileOpen(prev => !prev); else setLoginOpen(true)}} className="header__user-block-link text-menu f-row gap-4 simple-button">
-                            {person()}
-                            {isAuthorised ? accData?.name : `Войти`}
-                        </button>
-                        {isAuthorised ? profileOpen && <ProfileMenuPopover /> : <AuthPopup state={loginOpen} loginSwitcher={setLoginOpen}/>}
+                        {!isAuthorised ? (
+                            <>
+                                <button onClick={() => setLoginOpen(true)} className="header__user-block-link text-menu f-row gap-4 simple-button">
+                                    {person()}
+                                    Войти
+                                </button>
+                                <AuthPopup state={loginOpen} loginSwitcher={setLoginOpen} />
+                            </>
+                        ) : (
+                            <Popover>
+                                <PopoverButton className="header__user-block-link text-menu f-row gap-4 simple-button text-green">
+                                    {person()}
+                                    {accData?.name ? accData?.name : "Пользователь"}
+                                </PopoverButton>
+                                <ProfileMenuPopover />
+                            </Popover>
+                        )}
                     </div>
                 </div>
                 <div className="header__bottom-block header__sections-padding f-row">
                     <Link to="/" className="header__logo-holder f-column gap-4">
-                        <img src={logo} alt="Logo image" className="header__logo-img" />
+                        <img src={logo} alt="Logo" className="header__logo-img" />
                         <span className="header__logo-text text-m">сеть цветочных оптово-розничных центров</span>
                     </Link>
                     <div className="header__right-content f-row">
