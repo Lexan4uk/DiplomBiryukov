@@ -1,9 +1,9 @@
 import '@styles/popups/AuthPopup.scss';
-import AuthEmailInput from '@components/auth_elements/AuthEmailInput'
-import AuthPasswordInput from '@components/auth_elements/AuthPasswordInput'
-import ConfirmEmailInput from '@components/auth_elements/ConfirmEmailInput'
-import RegPasswordInput from '@components/auth_elements/RegPasswordInput'
-import SuccessReg from '@components/auth_elements/SuccessReg'
+import AuthEmailInput from '@components/elements/auth_elements/AuthEmailInput'
+import AuthPasswordInput from '@components/elements/auth_elements/AuthPasswordInput'
+import ConfirmEmailInput from '@components/elements/auth_elements/ConfirmEmailInput'
+import RegPasswordInput from '@components/elements/auth_elements/RegPasswordInput'
+import SuccessReg from '@components/elements/auth_elements/SuccessReg'
 
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import getSvg from '@images/svg'
@@ -19,7 +19,7 @@ const AuthPopup = ({ state, loginSwitcher }) => {
 
     return (
         <Dialog open={state} onClose={() => loginSwitcher(false)}>
-            <div className="auth-popup authp_bg f-column gap-10">
+            <div className="auth-popup_bg f-column gap-10">
                 <DialogPanel className="auth-popup__main f-column">
                     <button className="auth-popup__close-btn simple-button" onClick={() => loginSwitcher(false)}>
                         {cross("var(--black)")}

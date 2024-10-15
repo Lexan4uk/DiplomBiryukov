@@ -9,4 +9,37 @@
         padding: 15px;
         box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
     }
+    &__input-block {
+        align-items: center;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__input-border {
+        border: 1px solid var(--light-border);
+        border-radius: 12px;
+        width: 100%;
+        padding: 8px;
+        --iconcolor: var(--gray-text-inactive);
+        position: relative;
+        .profile-menu-popover__input {
+            pointer-events: none;
+        }
+        &_active {
+            border: 1px solid var(--green);
+            .profile-menu-popover__input {
+                pointer-events: all;
+            }
+        }
+    }
+    &__input {
+        width: 80%;
+    }
+    &__input-actions-holder {
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+        transform:  translateY(-15%);
+        margin-right: 10px;
+    }
 }

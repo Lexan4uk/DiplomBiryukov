@@ -3,8 +3,6 @@ import { useForm, FormProvider } from "react-hook-form";
 import { InputMask } from '@react-input/mask';
 import { useEffect, useState } from 'react';
 import { sendCode } from '@scripts/helpers/sendCode'
-import emailjs from 'emailjs-com';
-import { v4 as uuidv4 } from 'uuid';
 
 const ConfirmEmailInput = ({ setStep, setAuthData, authData }) => {
     const methods = useForm({ reValidateMode: 'onSubmit' });

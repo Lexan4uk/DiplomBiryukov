@@ -2,6 +2,7 @@ import { useRecoilState } from 'recoil';
 import { isAuthorisedState } from '@scripts/atoms/authState';
 import { login } from "@api/login"
 import { accDataAtom } from '@scripts/atoms/accDataAtom'
+import { useEffect } from 'react';
 
 
 function useAuth() {
@@ -14,9 +15,9 @@ function useAuth() {
       const responseLogin = await login();
       if (responseLogin.code === 201) {
         setIsAuthorised(false)
+        localStorage.removeItem('token');
         return
       }
-      console.log(responseLogin)
       if (responseLogin) {
         setIsAuthorised(true);
         setAccData(responseLogin);
@@ -26,7 +27,6 @@ function useAuth() {
       setIsAuthorised(false)
     }
   }
-
   return {
     isAuthorised,
     initUser,

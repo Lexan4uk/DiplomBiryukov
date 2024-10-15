@@ -4,7 +4,8 @@ export const apiTags = {
     email_enter: "accounts/checkEmail",
     get_token: "accounts/getToken",
     register: "accounts/createAccount",
-    
+    editName: "accounts/editName",
+    editPhone: "accounts/editPhone"
 
 };
 

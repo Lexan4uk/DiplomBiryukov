@@ -1,8 +1,20 @@
 import '@styles/popups/PofileMenuPopover.scss';
 import { PopoverPanel } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
+import getSvg from '@images/svg'
+import ProfileName from '@components/elements/profile_menu_elements/ProfileName'
+import useAuth from '@scripts/custom_hooks/useAuth';
+import { useEffect } from 'react';
+
 
 function ProfileMenuPopover() {
+  const {
+    pen,
+    cross
+} = getSvg()
+const { accData } = useAuth();
+
+
   return (
     <AnimatePresence>
       <PopoverPanel 
@@ -11,10 +23,8 @@ function ProfileMenuPopover() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }} anchor="bottom end" className="profile-menu-popover profile-menu-popover_props">
         <div className="profile-menu-popover__holder f-column gap-16">
-          <a href="/analytics">Analytics</a>
-          <a href="/engagement">Engagement</a>
-          <a href="/security">Security</a>
-          <a href="/integrations">Integrations</a>
+          <h2 className="profile-menu-popover__title text-m">Данные Вашего аккаунта<br/> будут использоваться для оформления заказа</h2>
+          <ProfileName name={accData?.name}/>
         </div>
 
       </PopoverPanel>

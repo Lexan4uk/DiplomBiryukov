@@ -19,6 +19,9 @@
     }
     &__user-block-link {
         align-items: center;
+        &:focus-visible {
+            outline: none;
+        }
     }
     &__bottom-block {
         justify-content: space-between;

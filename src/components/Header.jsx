@@ -23,7 +23,6 @@ function Header({ active }) {
         accData,
     } = useAuth()
     const [loginOpen, setLoginOpen] = useState(false)
-    const [profileOpen, setProfileOpen] = useState(false)
     return (
         <header className="header">
             <div className="header__container block-normalizer f-column">
