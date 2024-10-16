@@ -13,7 +13,7 @@ function useAuth() {
     const token = localStorage.getItem('token');
     if (!isAuthorised && token) {
       const responseLogin = await login();
-      if (responseLogin.code === 201) {
+      if (responseLogin.code === 201 || responseLogin.code === 404) {
         setIsAuthorised(false)
         localStorage.removeItem('token');
         return
@@ -27,6 +27,9 @@ function useAuth() {
       setIsAuthorised(false)
     }
   }
+  useEffect(() => {
+    console.log(accData)
+}, [accData])
   return {
     isAuthorised,
     initUser,

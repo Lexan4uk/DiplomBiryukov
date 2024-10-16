@@ -4,6 +4,7 @@ import AuthPasswordInput from '@components/elements/auth_elements/AuthPasswordIn
 import ConfirmEmailInput from '@components/elements/auth_elements/ConfirmEmailInput'
 import RegPasswordInput from '@components/elements/auth_elements/RegPasswordInput'
 import SuccessReg from '@components/elements/auth_elements/SuccessReg'
+import NewPasswordInput from '@components/elements/auth_elements/NewPasswordInput'
 
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import getSvg from '@images/svg'
@@ -28,9 +29,11 @@ const AuthPopup = ({ state, loginSwitcher }) => {
                     <DialogTitle className="auth-popup__title title-m">Личный кабинет</DialogTitle>
                     {step === "email" && <AuthEmailInput setStep={setStep} setAuthData={setAuthData} />}
                     {step === "login" && <AuthPasswordInput setStep={setStep} authData={authData} loginSwitcher={loginSwitcher} />}
-                    {step === "conf" && <ConfirmEmailInput setStep={setStep} setAuthData={setAuthData} authData={authData} />}
+                    {step === "conf" && <ConfirmEmailInput setStep={setStep} setAuthData={setAuthData} authData={authData} confirmType={"confirmReg"}/>}
+                    {step === "forgotPassword" && <ConfirmEmailInput setStep={setStep} setAuthData={setAuthData} authData={authData} confirmType={"forgotPassword"}/>}
                     {step === "regPassword" && <RegPasswordInput setStep={setStep} setAuthData={setAuthData} authData={authData} />}
                     {step === "successReg" && <SuccessReg setStep={setStep} />}
+                    {step === "newPassword" && <NewPasswordInput setStep={setStep} setAuthData={setAuthData} authData={authData} />}
                 </DialogPanel>
             </div>
         </Dialog>

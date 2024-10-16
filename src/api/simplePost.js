@@ -5,8 +5,8 @@ export const apiTags = {
     get_token: "accounts/getToken",
     register: "accounts/createAccount",
     editName: "accounts/editName",
-    editPhone: "accounts/editPhone"
-
+    editPhone: "accounts/editPhone",
+    editPassword: "accounts/editPassword"
 };
 
 export async function simplePost(path, data) {

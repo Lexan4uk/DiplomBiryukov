@@ -6,23 +6,8 @@ import { simplePost, apiTags } from "@api/simplePost"
 import useAuth from '@scripts/custom_hooks/useAuth';
 
 
-function ProfileName({ name }) {
-    const methods = useForm({ reValidateMode: 'onSubmit' });
-    const [toggleEditing, setToggleEditing] = useState(false)
-    const [querry, setIsQuerry] = useState(false)
-    const { handleSubmit, formState: { errors }, register, clearErrors, setValue, setError, trigger } = methods;
-    const validationRules = {
-        required: "Поле не может быть пустым",
-    };
-    const {
-        pen,
-        cross,
-        done
-    } = getSvg()
-    const {
-        initUser,
-        accData
-    } = useAuth()
+function ProfileNewPassword() {
+    const [isEditing, setIsEditing] = useState(false)
 
 
     const handleCloseClick = () => {
@@ -81,4 +66,4 @@ function ProfileName({ name }) {
         </FormProvider>
     )
 }
-export default ProfileName
+export default ProfileNewPassword

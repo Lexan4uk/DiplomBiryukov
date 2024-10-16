@@ -81,6 +81,12 @@ const AuthPasswordInput = ({ setStep, authData, loginSwitcher }) => {
                 >
                     Вернуться
                 </button>
+                <button
+                    className="auth-popup__back-button simple-button text-green"
+                    onClick={() => setStep("forgotPassword")}
+                >
+                    Забыл пароль
+                </button>
             </div>
         </FormProvider>
     );

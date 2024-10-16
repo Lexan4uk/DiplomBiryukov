@@ -4,7 +4,7 @@ import { InputMask } from '@react-input/mask';
 import { useEffect, useState } from 'react';
 import { sendCode } from '@scripts/helpers/sendCode'
 
-const ConfirmEmailInput = ({ setStep, setAuthData, authData }) => {
+const ConfirmEmailInput = ({ setStep, setAuthData, authData, confirmType }) => {
     const methods = useForm({ reValidateMode: 'onSubmit' });
     const { trigger, handleSubmit, formState: { errors }, register, setError, clearErrors } = methods;
 
@@ -36,8 +36,15 @@ const ConfirmEmailInput = ({ setStep, setAuthData, authData }) => {
 
         const cleanedCode = data.verCode.replace(/\s|_/g, '');
         if (cleanedCode === generatedCode) {
-            setAuthData({email: authData.email})
-            setStep("regPassword")
+            setAuthData({ email: authData.email })
+            switch (confirmType) {
+                case ("confirmReg"):
+                    setStep("regPassword")
+                case ("forgotPassword"):
+                    setStep("newPassword")
+                default:
+                    return
+            }
         }
         else {
             setError("verCode", {
@@ -62,7 +69,7 @@ const ConfirmEmailInput = ({ setStep, setAuthData, authData }) => {
                     />
                 </div>
                 {errors["verCode"] && <span className="auth-popup__error text-m text-red">{errors["verCode"].message}</span>}
-                <button className={`auth-popup__sumbit-button profile-button`}onClick={handleSaveClick}>Далее</button>
+                <button className={`auth-popup__sumbit-button profile-button`} onClick={handleSaveClick}>Далее</button>
                 <button className='auth-popup__back-button simple-button text-green' onClick={() => setStep('email')}>Вернуться</button>
             </div>
         </FormProvider>

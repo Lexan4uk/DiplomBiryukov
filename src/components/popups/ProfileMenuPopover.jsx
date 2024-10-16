@@ -3,6 +3,8 @@ import { PopoverPanel } from '@headlessui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import getSvg from '@images/svg'
 import ProfileName from '@components/elements/profile_menu_elements/ProfileName'
+import ProfilePhone from '@components/elements/profile_menu_elements/ProfilePhone'
+
 import useAuth from '@scripts/custom_hooks/useAuth';
 import { useEffect } from 'react';
 
@@ -15,6 +17,7 @@ function ProfileMenuPopover() {
 const { accData } = useAuth();
 
 
+
   return (
     <AnimatePresence>
       <PopoverPanel 
@@ -25,6 +28,7 @@ const { accData } = useAuth();
         <div className="profile-menu-popover__holder f-column gap-16">
           <h2 className="profile-menu-popover__title text-m">Данные Вашего аккаунта<br/> будут использоваться для оформления заказа</h2>
           <ProfileName name={accData?.name}/>
+          <ProfilePhone phone={accData?.phoneNumber}/>
         </div>
 
       </PopoverPanel>

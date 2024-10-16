@@ -1,0 +1,84 @@
+import '@styles/popups/AuthPopup.scss';
+import { useForm, FormProvider } from "react-hook-form";
+import { useState } from 'react';
+import { simplePost, apiTags as postTags } from "@api/simplePost"
+
+import getSvg from '@images/svg'
+
+
+const NewPasswordInput = ({ setStep, setAuthData, authData }) => {
+    const methods = useForm({ reValidateMode: 'onSubmit' });
+    const [isQuerry, setIsQuerry] = useState(false);
+    const { trigger, handleSubmit, formState: { errors }, register, setError } = methods;
+    const [isPassShown, setIsPassShown] = useState(false);
+    const {
+        eye,
+    } = getSvg()
+    const validationRules = {
+        required: "Пароль обязателен",
+        minLength: {
+            value: 4,
+            message: "Пароль должен быть длиннее 3-х символов"
+        }
+    };
+
+    const handleSaveClick = async () => {
+        const isValid = await trigger();
+        if (isValid) {
+            setIsQuerry(true);
+            handleSubmit(onSubmit)();
+        }
+    };
+
+
+    const onSubmit = async (data) => {
+        if (data.password !== data.conf_password) {
+            setError("password", {
+                message: "Пароли не совпадают!"
+            });
+
+        }
+        else {
+            const querryData = {
+                "email": authData.email,
+                "password": data.password
+            }
+            const response = await simplePost(postTags.editPassword, querryData);
+            if (response?.code === 200) {
+                setAuthData({})
+                setStep('successReg')
+            }
+            else {
+                setError("password", {message: `${response.message}`})
+            }
+            console.log(response)
+        }
+        setIsQuerry(false)
+    }
+
+    return (
+        <FormProvider {...methods} >
+            <div className="auth-popup__input-block f-column gap-10">
+                <h3 className="auth-popup__undertitle title-s">Создайте новый пароль</h3>
+                <div className="auth-popup__input-holder f-row">
+                    <input className="auth-popup__input text-m element-inactive" defaultValue={authData.email} />
+                </div>
+                <div className="auth-popup__input-holder f-row">
+                    <input {...register("password", validationRules)} className="auth-popup__input text-m" type={`${isPassShown ? "text" : "password"}`} placeholder='Введите пароль' />
+                    <button className={`auth-popup__pass-shown-btn simple-button`} onClick={() => setIsPassShown((prev) => !prev)}>{eye(`${isPassShown ? "var(--green)" : "var(--gray-text-active)"}`)}</button>
+                </div>
+                <div className="auth-popup__input-holder f-row">
+                    <input {...register("conf_password", validationRules)} className="auth-popup__input text-m" type={`${isPassShown ? "text" : "password"}`} placeholder='Повторите пароль' />
+                </div>
+                {(errors["password"] || errors["conf_password"]) && (
+                    <span className="auth-popup__error text-m text-red">
+                        {errors["password"] ? errors["password"].message : errors["conf_password"].message}
+                    </span>
+                )}
+                <button className={`auth-popup__sumbit-button profile-button ${isQuerry ? "button-inactive" : ""}`} onClick={handleSaveClick}>Сохранить</button>
+            </div>
+        </FormProvider>
+    )
+
+}
+export default NewPasswordInput 
