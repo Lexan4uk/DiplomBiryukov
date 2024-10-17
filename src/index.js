@@ -13,9 +13,8 @@ import { isUserFetchingState } from '@scripts/atoms/authState';
 
 import '@fonts/fonts.scss'
 import '@globalStyles/globals.scss';
-import '@globalStyles/mixins.scss';
 import '@globalStyles/normalize.scss';
-import '@globalStyles/variables.scss';
+
 
 
 const ProcessAuth = (props) => {

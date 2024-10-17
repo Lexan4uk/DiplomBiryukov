@@ -44,6 +44,7 @@ main {
 .text-red {
   color: var(--red)
 }
+
 .text-green {
   color: var(--green)
 }
@@ -71,6 +72,7 @@ main {
     color: var(--green);
   }
 }
+
 .element-inactive {
   opacity: 0.7;
   pointer-events: none;
@@ -164,10 +166,12 @@ main {
     opacity: 0.9;
   }
 }
+
 .button-inactive {
   background: var(--gray-text-inactive) !important;
   pointer-events: none;
 }
+
 .green-button {
   @extend .button;
   background: var(--green);
@@ -192,134 +196,137 @@ main {
   border-radius: 8px;
   padding: 8px 16px;
 }
-/*.title-l {
-  font-family: 'Bender';
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 32px;
-  text-transform: uppercase;
-}
 
-.title-m {
-  font-family: 'Bender';
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-  text-transform: uppercase;
+@include media-down($px770) {
+  .title-l {
+    font-family: 'Bender';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+  }
 
-}
+  .title-m {
+    font-family: 'Bender';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
 
-.title-s {
-  font-family: 'Bender';
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  text-transform: uppercase;
+  }
 
-}
-.title-xs {
-  font-family: 'Bender';
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  text-transform: uppercase;
+  .title-s {
+    font-family: 'Bender';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
 
-}
+  }
 
-.text-l {
-  font-family: 'Brutal Type';
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-}
+  .text-xl {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+  }
 
-.text-m {
-  font-family: 'Brutal Type';
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-}
-.text-s {
-  font-family: 'Brutal Type';
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-}
+  .text-l {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+  }
 
-.text-menu {
-  font-family: 'Brutal Type';
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-}
+  .text-m {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+  }
 
-.hlink-s {
-  font-family: 'Brutal Type';
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-}
-.hlink-l {
-  font-family: 'Brutal Type';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-}
-.simple-button {
-  background: none;
-  padding: 0;
-  border: none;
-}
+  .text-s {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+  }
 
-.button-text {
-  font-family: 'Bender';
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-}
+  .text-xs {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 6px;
+    line-height: 8px;
+  }
 
-.button {
-  @extend .button-text;
-  border: none;
-  height: fit-content;
-  background: var(--button-color);
-  color: var(--black);
-  transition: all 0.3s;
-  &:hover {
-    opacity: 0.9;
+  .text-menu {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
   }
 }
 
-.button-l {
-  @extend .button;
-  padding-top: 10px;
-  padding-bottom: 11px;
-  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+@include media-down($px426) {
+  .title-l {
+    font-family: 'Bender';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+  }
 
-  &_uncative {
-    opacity: 0.7;
-    pointer-events: none;
+  .title-m {
+    font-family: 'Bender';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+  }
+
+  .title-s {
+    font-family: 'Bender';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+
+  }
+
+  .text-xl {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .text-l {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .text-m {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .text-s {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  .text-xs {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 6px;
+    line-height: 8px;
+  }
+
+  .text-menu {
+    font-family: 'Brutal Type';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
   }
 }
-.text-yellow {
-  color: var(--button-color)
-}
-.text-red {
-  color: var(--red)
-}
-.text-black {
-  color: var(--black)
-}
-
-
-.button-s {
-  @extend .button;
-  padding: 5px 14px;
-
-  &_slice-right {
-    background: linear-gradient(350grad, transparent 10px, var(--button-color) 0) ;
-  }
-  &_slice-left {
-    background: linear-gradient(50grad, transparent 10px, var(--button-color) 0) ;
-  }
-}*/

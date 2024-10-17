@@ -13,6 +13,10 @@ function ProfileName({ name }) {
     const { handleSubmit, formState: { errors }, register, clearErrors, setValue, setError, trigger } = methods;
     const validationRules = {
         required: "Поле не может быть пустым",
+        maxLength: {
+            value: 15,
+            message: "Имя должно быть не длиннее 15 знаков"
+        }
     };
     const {
         pen,

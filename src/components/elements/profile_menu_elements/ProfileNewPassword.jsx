@@ -8,15 +8,24 @@ import useAuth from '@scripts/custom_hooks/useAuth';
 
 function ProfileNewPassword() {
     const [isEditing, setIsEditing] = useState(false)
-
-
-    const handleCloseClick = () => {
-        setToggleEditing(false);
-        setValue('name', accData.name ? accData.name : '');
-        clearErrors('name'); 
+    const [isQuerry, setIsQuerry] = useState(false);
+    const [isPassShown, setIsPassShown] = useState(false);
+    const [isSucess, setIsSucess] = useState(false)
+    const methods = useForm({ reValidateMode: 'onSubmit' });
+    const { trigger, handleSubmit, formState: { errors }, register, setError } = methods;
+    const {
+        eye,
+    } = getSvg()
+    const validationRules = {
+        required: "Пароль обязателен",
+        minLength: {
+            value: 4,
+            message: "Пароль должен быть длиннее 3-х символов"
+        }
     };
 
     const handleSaveClick = async () => {
+        setIsSucess(false)
         const isValid = await trigger();
         if (isValid) {
             setIsQuerry(true);
@@ -27,43 +36,46 @@ function ProfileNewPassword() {
 
     const onSubmit = async (data) => {
         const querryData = {
-            "name": data.name
+            "oldPassword": data.oldPassword,
+            "newPassword": data.newPassword
         }
-        const response = await simplePost(apiTags.editName, querryData);
-        if (response.code === 200) {
-            initUser()
+        const response = await simplePost(apiTags.editPassword, querryData);
+        if (response?.code === 200) {
+            setIsSucess(true)
         }
         else {
-            setError("name", {message: `${response.message}`})
+            setError("oldPassword", { message: `${response.message}` })
         }
         console.log(response)
+
         setIsQuerry(false)
     }
-    return (
-        <FormProvider {...methods}>
-            <div className="profile-menu-popover__input-block f-row gap-16">
-                <p className='profile-menu-popover__input-block-name'>Имя</p>
-                <div className={`profile-menu-popover__input-border ${toggleEditing && "profile-menu-popover__input-border_active"}`}>
-                    <input className="profile-menu-popover__input" {...register("name", validationRules)} type="text" defaultValue={name} />
-                    <div className="profile-menu-popover__input-actions-holder f-row gap-4">
-                        {!toggleEditing ? (
-                            <button className="profile-menu-popover__input-edit simple-button" onClick={() => setToggleEditing(prev => !prev)}>{pen()}</button>
-                        ) : (
-                            <>
-                                <button className="profile-menu-popover__input-save simple-button" onClick={handleSaveClick}>{done()}</button>
-                                <button className="profile-menu-popover__input-close simple-button" onClick={handleCloseClick}>{cross(undefined, 20, 20)}</button>
-                            </>
-                        )}
-                    </div>
 
-                </div>
+    return (isEditing ? (
+        <FormProvider {...methods}>
+            <button className="profile-menu-popover__new-pass-toggle profile-button" onClick={() => setIsEditing(prev => !prev)}>Скрыть</button>
+            <div className="profile-menu-popover__input-border profile-menu-popover__input-border_active f-row">
+                <input {...register("oldPassword", validationRules)} className="profile-menu-popover__input text-m" type={`${isPassShown ? "text" : "password"}`} placeholder='Текущий пароль' />
+                <button className={`profile-menu-popover__pass-shown-btn simple-button`} onClick={() => setIsPassShown((prev) => !prev)}>{eye(`${isPassShown ? "var(--green)" : "var(--gray-text-inactive)"}`)}</button>
             </div>
-            {(errors["name"]) && (
-                <span className="profile-menu-popover__error text-s text-red">
-                    {errors["name"].message}
+            <div className="profile-menu-popover__input-border profile-menu-popover__input-border_active f-row">
+                <input {...register("newPassword", validationRules)} className="profile-menu-popover__input text-m" type={`${isPassShown ? "text" : "password"}`} placeholder='Новый пароль' />
+            </div>
+
+            {(errors["oldPassword"] || errors["newPassword"]) && (
+                <span className="auth-popup__error text-m text-red">
+                    {errors["oldPassword"] ? errors["oldPassword"].message : errors["newPassword"].message}
                 </span>
             )}
-        </FormProvider>
+            {isSucess && <span className="profile-menu-popover__message text-m">Пароль изменён!</span>}
+
+            <button className={`profile-menu-popover__sumbit-button profile-button ${isQuerry ? "button-inactive" : ""}`} onClick={handleSaveClick}>Сохранить</button>
+
+        </FormProvider >)
+        : (
+            <button className="profile-menu-popover__new-pass-toggle profile-button" onClick={() => setIsEditing(prev => !prev)}>Изменить пароль</button>
+        )
+
     )
 }
 export default ProfileNewPassword

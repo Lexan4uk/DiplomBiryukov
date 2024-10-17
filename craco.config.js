@@ -1,6 +1,6 @@
 const path = require('path');
 
-const resolvePath = p => path.resolve(__dirname, p)
+const resolvePath = p => path.resolve(__dirname, p);
 
 module.exports = {
     webpack: {
@@ -13,7 +13,16 @@ module.exports = {
             '@pages': resolvePath('./src/pages'),
             '@globalStyles': resolvePath('./src/styles/base/'),
             '@scripts': resolvePath('./src/scripts'),
-        }
+        },
     },
-    
-}
+    style: {
+        sass: {
+            loaderOptions: {
+                additionalData: `
+                    @import "~@globalStyles/mixins.scss";
+                    @import "~@globalStyles/variables.scss";
+                `,
+            },
+        },
+    },
+};

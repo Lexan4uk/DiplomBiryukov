@@ -27,9 +27,9 @@ function useAuth() {
       setIsAuthorised(false)
     }
   }
-  useEffect(() => {
+  /*useEffect(() => {
     console.log(accData)
-}, [accData])
+}, [accData])*/
   return {
     isAuthorised,
     initUser,
