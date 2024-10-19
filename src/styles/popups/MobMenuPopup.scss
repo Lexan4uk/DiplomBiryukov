@@ -1,0 +1,27 @@
+.mobmenu-popup {
+    &_bg {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: #00000028;
+        
+    }
+    &__main {
+        background: var(--white);
+        padding: 20px;
+        border-radius: 0 0 0 12px;
+        position: relative;
+        align-self: flex-end;
+        min-width: 50%;
+        
+        
+    }
+    &__close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 10px;
+    }
+}

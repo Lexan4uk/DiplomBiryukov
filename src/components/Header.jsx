@@ -3,11 +3,12 @@ import getSvg from '@images/svg'
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import HeaderOption from '@components/cards/HeaderOption'
 import logo from "@images/header/logo.png"
 import AuthPopup from "@components/popups/AuthPopup"
+import MobMenuPopup from "@components/popups/MobMenuPopup"
 import ProfileMenuPopover from "@components/popups/ProfileMenuPopover"
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
+import BaseHeaderOptions from "@components/page_elements/header_elements/BaseHeaderOptions"
+import { Popover, PopoverButton } from '@headlessui/react'
 
 import useAuth from '@scripts/custom_hooks/useAuth';
 
@@ -16,22 +17,21 @@ function Header({ active }) {
     const {
         person,
         clock,
-        pin
+        pin,
+        menu
     } = getSvg()
     const {
         isAuthorised,
         accData,
     } = useAuth()
     const [loginOpen, setLoginOpen] = useState(false)
+    const [mobMenuOpen, setMobMenuOpen] = useState(false)
     return (
         <header className="header">
             <div className="header__container block-normalizer f-column">
                 <div className="header__top-block header__sections-padding f-row">
                     <nav className="header__nav f-row gap-16">
-                        <HeaderOption href="/" text="Каталог" active={active === 1} />
-                        <HeaderOption href="/" text="О компании" active={active === 2} />
-                        <HeaderOption href="/" text="Доставка" active={active === 3} />
-                        <HeaderOption href="/" text="Отзывы" active={active === 4} />
+                        <BaseHeaderOptions activeOption={active} />
                     </nav>
                     <div className="header__user-block">
                         {!isAuthorised ? (
@@ -58,6 +58,12 @@ function Header({ active }) {
                         <img src={logo} alt="Logo" className="header__logo-img" />
                         <span className="header__logo-text text-m">сеть цветочных оптово-розничных центров</span>
                     </Link>
+                    <div className="header__mob-menu-elements">
+                        <button onClick={() => setMobMenuOpen(true)} className="header__mob-menu-button simple-button">
+                            {menu(undefined, 30, 30)}
+                        </button>
+                        <MobMenuPopup state={mobMenuOpen} mobMenuSwitcher={setMobMenuOpen} activeOption={active} name={accData?.name}/>
+                    </div>
                     <div className="header__right-content f-row">
                         <div className="header__numbers-holder f-column gap-10">
                             <span className="header__number text-xl">+7 800 555 35 35</span>

@@ -232,6 +232,13 @@ const getSvg = () => {
             </svg>
         )
     }
+    const menu = (fill = "var(--iconcolor)", height = 24, width = 24, customclass = "") => {
+        return (
+            <svg className={`custom-svg ${customclass}`} width={width} height={height} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill={fill} d="M2 19V16.8333H16V19H2ZM2 13.5833V11.4167H22V13.5833H2ZM2 8.16667V6H22V8.16667H2Z" />
+            </svg>
+        )
+    }
 
 
     return {
@@ -260,7 +267,8 @@ const getSvg = () => {
         arrow_right,
         clock,
         phone,
-        done
+        done,
+        menu
     }
 }
 export default getSvg

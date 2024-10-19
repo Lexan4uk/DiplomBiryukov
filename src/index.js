@@ -1,4 +1,5 @@
 import Main from '@pages/Main';
+import Addresses from '@pages/Addresses';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -45,6 +46,7 @@ root.render(
         <Router>
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route path="/addresses" element={<Addresses />} />
           </Routes>
         </Router>
         </ProcessAuth>

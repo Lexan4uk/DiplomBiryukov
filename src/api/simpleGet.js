@@ -1,7 +1,7 @@
 import { api } from "@api/api";
 
 export const apiTags = {
-    
+    getAddresses: "addresses/getAddresses"
 };
 
 export async function simpleGet(params) {

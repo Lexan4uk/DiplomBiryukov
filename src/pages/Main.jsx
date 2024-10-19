@@ -11,7 +11,7 @@ function Main() {
   return (
     <>
       <Header active={1} />
-      <main className="main-catalog">
+      <main className="main-catalog main-block">
         <button className='button' >Послать письмо</button>
       </main>
       <Footer />

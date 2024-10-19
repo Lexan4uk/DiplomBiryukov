@@ -46,3 +46,14 @@
         }
     }
 }
+@include media-down($px426) {
+    .footer {
+        &__content {
+            flex-direction: column-reverse !important;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+
+        
+    }
+}
