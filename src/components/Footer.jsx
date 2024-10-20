@@ -23,7 +23,7 @@ function Footer() {
                             <span className="footer__number text-l">+7 800 666 36 36</span>
                         </div>
                     </div>
-                    <Link className="footer__addresses-link" to="/">Адреса цветочных центров</Link>
+                    <Link className="footer__addresses-link" to="/addresses">Адреса цветочных центров</Link>
                 </div>
             </div>
         </footer>

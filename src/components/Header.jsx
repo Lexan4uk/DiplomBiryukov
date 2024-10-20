@@ -74,7 +74,7 @@ function Header({ active }) {
                                 {clock()}
                                 Ждём вас с 8:00 до 22:00
                             </span>
-                            <Link to="/" className="header__action f-row gap-4 text-l text-link">
+                            <Link to="/addresses" className="header__action f-row gap-4 text-l text-link">
                                 {pin()}
                                 Адреса цветочных центров
                             </Link>

@@ -20,12 +20,13 @@ body {
 #root {
   background: var(--white);
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-body {}
-
 main {
-  min-height: 80vh;
+  flex: 1;
 }
 
 .block-normalizer {
@@ -332,5 +333,9 @@ main {
     font-weight: 400;
     font-size: 10px;
     line-height: 10px;
+  }
+  .main-block {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }

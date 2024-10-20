@@ -1,7 +1,9 @@
 import { api } from "@api/api";
 
 export const apiTags = {
-    getAddresses: "addresses/getAddresses"
+    getAddresses: "addresses/getAddresses",
+    getBoquetCompleted: "boquets/getBoquetCompleted",
+    getBoquetConstructor: "boquets/getBoquetConstructor"
 };
 
 export async function simpleGet(params) {

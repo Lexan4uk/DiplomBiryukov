@@ -1,5 +1,5 @@
 import '@styles/Header.scss';
-import HeaderOption from '@components/cards/HeaderOption'
+import HeaderOption from "@components/page_elements/header_elements/HeaderOption"
 
 const BaseHeaderOptions = ({ activeOption }) => {
     return (
