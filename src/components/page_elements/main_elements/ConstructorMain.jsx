@@ -1,4 +1,4 @@
-import '@styles/pages/Main.scss';
+import '@styles/pages/Main_catalog.scss';
 
 
 const ConstructorMain = () => {

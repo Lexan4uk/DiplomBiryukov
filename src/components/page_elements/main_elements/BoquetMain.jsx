@@ -1,4 +1,4 @@
-import '@styles/pages/Main.scss';
+import '@styles/pages/Main_catalog.scss';
 import BoquetCard from '@components/page_elements/main_elements/BoquetCard'
 import useSWR from 'swr';
 import { simpleGet, apiTags } from '@api/simpleGet'
@@ -21,7 +21,7 @@ const BoquetMain = () => {
             <p className="main-catalog__page-desc text-l">На этой странице вы сможете выбрать готовый букет, созданный лучшими флористами. Каждый букет — это сочетание утончённых цветов, идеально подобранных по цветовой гамме и стилю. Оцените разнообразие предложений: от классических роз до необычных авторских композиций. Сделайте выбор, который подчеркнет особенный момент или станет идеальным подарком.</p>
             <div className="main-catalog__swiper-holder">
                 <Swiper
-                    slidesPerView={3}
+                    slidesPerView={4}
                     grid={{
                         rows: 2
                     }}
@@ -30,13 +30,13 @@ const BoquetMain = () => {
                     className="main-catalog__swiper"
                 >
                     {boquets?.map((boquet) => (
-                        <SwiperSlide>
-                            <BoquetCard key={boquet.id} data={boquet} />
+                        <SwiperSlide key={boquet.id}>
+                            <BoquetCard data={boquet} />
                         </SwiperSlide>
                     ))}
                     {boquets?.map((boquet) => (
-                        <SwiperSlide>
-                            <BoquetCard key={boquet.id} data={boquet} />
+                        <SwiperSlide key={boquet.id}>
+                            <BoquetCard data={boquet} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

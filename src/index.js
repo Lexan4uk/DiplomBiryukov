@@ -1,9 +1,9 @@
-import Main from '@pages/Main';
+import Main_catalog from '@pages/Main_catalog';
 import Addresses from '@pages/Addresses';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate  } from 'react-router-dom';
 import { RecoilRoot, useRecoilState } from 'recoil';
 import reportWebVitals from './reportWebVitals';
 import useAuth from '@scripts/custom_hooks/useAuth';
@@ -45,11 +45,12 @@ root.render(
       <ProcessAuth>
         <Router>
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Navigate to="/catalog" />} />
+            <Route path="/catalog" element={<Main_catalog />} />
             <Route path="/addresses" element={<Addresses />} />
           </Routes>
         </Router>
-        </ProcessAuth>
+      </ProcessAuth>
     </RecoilRoot>
   </React.StrictMode>
 );

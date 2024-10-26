@@ -7,8 +7,6 @@ import ProfilePhone from '@components/elements/profile_menu_elements/ProfilePhon
 import ProfileNewPassword from '@components/elements/profile_menu_elements/ProfileNewPassword'
 
 import useAuth from '@scripts/custom_hooks/useAuth';
-import { useEffect } from 'react';
-
 
 function ProfileMenuPopover() {
   const {
@@ -16,8 +14,6 @@ function ProfileMenuPopover() {
     cross
 } = getSvg()
 const { accData } = useAuth();
-
-
 
   return (
     <AnimatePresence>

@@ -1,4 +1,4 @@
-import '@styles/pages/Main.scss';
+import '@styles/pages/Main_catalog.scss';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import BoquetMain from '@components/page_elements/main_elements/BoquetMain'
@@ -12,7 +12,7 @@ import { simpleGet, apiTags } from '@api/simpleGet'
 
 
 
-function Main() {
+function Main_catalog() {
   const [mode, setMode] = useState('boquet')
 
   return (
@@ -21,7 +21,7 @@ function Main() {
       <main className="main-catalog">
         <div className="main-catalog__content-holder main-block block-normalizer f-column gap-16">
           <div className="main-catalog__switcher-holder gap-10">
-            <button className={`main-catalog__switcher-button profile-button ${mode === "boquet" && 'button-inactive'}`} onClick={() => setMode('boquet')}>Выбрать букет</button>
+            <button className={`main-catalog__switcher-button profile-button ${mode === "boquet" && 'button-inactive'}`} onClick={() => setMode('boquet')}>Выбор букета</button>
             <button className={`main-catalog__switcher-button profile-button ${mode === "constructor" && 'button-inactive'}`} onClick={() => setMode('constructor')}>Конструктор букета</button>
           </div>
           {mode  === "boquet" ? <BoquetMain /> : <ConstructorMain />}
@@ -32,4 +32,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Main_catalog;

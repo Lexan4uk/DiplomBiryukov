@@ -147,6 +147,10 @@ main {
   font-size: 18px;
   line-height: 18px;
 }
+.text-inactive {
+  color: var(--gray-text-inactive) !important;
+  text-decoration: line-through !important;
+}
 
 .simple-button {
   background: none;
