@@ -1,27 +1,42 @@
 import '@styles/pages/Main_catalog.scss';
 import { Link } from "react-router-dom";
 import getSvg from '@images/svg'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
 
 const BoquetCard = ({ data }) => {
-    const [isHover, setIsHover] = useState(false)
-    const cartAnimation = useSpring({
-        opacity: isHover ? 1 : 0,
-        transform: isHover ? "scale(1)" : "scale(0.5)",
-        config: { tension: 220, friction: 12 }
-    });
+    const [isHover, setIsHover] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.matchMedia("(max-width: 768px)").matches);
+
     const {
         cart
     } = getSvg()
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //на мобилке карт должен быть по умолчанию
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 768px)");
+        const handleChange = () => setIsMobile(mediaQuery.matches);
+        mediaQuery.addEventListener("change", handleChange);
+        console.log('бебебе')
+        return () => mediaQuery.removeEventListener("change", handleChange);
+    }, []);
+
+    const cartAnimation = useSpring({
+        opacity: isMobile || isHover ? 1 : 0,
+        transform: isMobile || isHover ? 'scale(1)' : 'scale(0.5)',
+        config: { tension: 220, friction: 12 },
+    });
+
     return (
-        <div className="main-catalog__boquet-card"
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}>
-            <animated.button style={cartAnimation} className="main-catalog__boquet-cart-button simple-button">
+        <div
+            className="main-catalog__boquet-card"
+            onMouseEnter={() => !isMobile && setIsHover(true)}
+            onMouseLeave={() => !isMobile && setIsHover(false)}
+        >
+            <animated.button
+                style={cartAnimation}
+                className="main-catalog__boquet-cart-button simple-button"
+            >
                 <div className="main-catalog__boquet-cart-holder f-row">
                     {cart()}
                 </div>
@@ -32,7 +47,7 @@ const BoquetCard = ({ data }) => {
                 </div>
 
                 <div className="main-catalog__boquet-content f-column gap-10">
-                    {data.promo === true ? (
+                    {data.promo ? (
                         <div className="main-catalog__boquet-promo-holder f-row gap-10">
                             <h2 className="main-catalog__boquet-price title-l text-green">{`${data.price} руб`}</h2>
                             <h2 className="main-catalog__boquet-price title-s text-inactive">{`${data.oldPrice}`}</h2>
@@ -44,6 +59,7 @@ const BoquetCard = ({ data }) => {
                 </div>
             </Link>
         </div>
-    )
-}
-export default BoquetCard
+    );
+};
+
+export default BoquetCard;

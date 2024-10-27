@@ -5,9 +5,6 @@ import BoquetMain from '@components/page_elements/main_elements/BoquetMain'
 import ConstructorMain from '@components/page_elements/main_elements/ConstructorMain'
 
 import { useState } from 'react';
-import useSWR from 'swr';
-
-import { simpleGet, apiTags } from '@api/simpleGet'
 
 
 

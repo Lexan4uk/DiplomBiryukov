@@ -3,7 +3,8 @@ import { api } from "@api/api";
 export const apiTags = {
     getAddresses: "addresses/getAddresses",
     getBoquetCompleted: "boquets/getBoquetCompleted",
-    getBoquetConstructor: "boquets/getBoquetConstructor"
+    getBoquetConstructor: "boquets/getBoquetConstructor",
+    getBoquetByLink: (link) => `boquets/getBoquetByLink/${link}`,
 };
 
 export async function simpleGet(params) {

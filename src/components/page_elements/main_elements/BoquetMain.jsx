@@ -21,9 +21,29 @@ const BoquetMain = () => {
             <p className="main-catalog__page-desc text-l">На этой странице вы сможете выбрать готовый букет, созданный лучшими флористами. Каждый букет — это сочетание утончённых цветов, идеально подобранных по цветовой гамме и стилю. Оцените разнообразие предложений: от классических роз до необычных авторских композиций. Сделайте выбор, который подчеркнет особенный момент или станет идеальным подарком.</p>
             <div className="main-catalog__swiper-holder">
                 <Swiper
-                    slidesPerView={4}
+                    slidesPerView={1}
                     grid={{
                         rows: 2
+                    }}
+                    breakpoints= {{
+                        424: {
+                            slidesPerView: 2,
+                            grid: {
+                                rows: 2
+                            }
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            grid: {
+                                rows: 2
+                            }
+                        },
+                        1023: {
+                            slidesPerView: 4,
+                            grid: {
+                                rows: 2
+                            }
+                        },
                     }}
                     spaceBetween={10} 
                     modules={[Grid]}

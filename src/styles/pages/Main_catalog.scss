@@ -64,7 +64,17 @@
     }
     &__boquet-cart-holder {
         background: var(--white);
-        border-radius: 10px;
+        padding: 5px;
+        border-radius: 16px;
         box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.4);
+        
     }
 }
+@include media-down($px767) {
+    .main-catalog {
+        &__swiper {
+            height: 500px;
+            padding: 5px !important;
+        }
+    }
+ }

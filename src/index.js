@@ -1,5 +1,7 @@
 import Main_catalog from '@pages/Main_catalog';
 import Addresses from '@pages/Addresses';
+import Boquet_page from '@pages/Boquet_page';
+
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -47,6 +49,7 @@ root.render(
           <Routes>
             <Route path="/" element={<Navigate to="/catalog" />} />
             <Route path="/catalog" element={<Main_catalog />} />
+            <Route path="/catalog/:link" element={<Boquet_page />} />
             <Route path="/addresses" element={<Addresses />} />
           </Routes>
         </Router>
