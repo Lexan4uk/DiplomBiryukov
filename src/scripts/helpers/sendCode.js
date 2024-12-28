@@ -13,7 +13,7 @@ export const sendCode = (email) => {
 
     emailjs.send('service_1k392fs', 'template_ar3mbq7', templateParams, 'I5q15VhPnkyKl8yWx')
         .then((response) => {
-            console.log('SUCCESS!', response.status, response.text);
+            //console.log('SUCCESS!', response.status, response.text);
         }, (error) => {
             console.log('FAILED...', error);
         });

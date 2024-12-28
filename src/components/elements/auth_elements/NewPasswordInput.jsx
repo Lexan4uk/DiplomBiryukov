@@ -43,7 +43,7 @@ const NewPasswordInput = ({ setStep, setAuthData, authData }) => {
                 "email": authData.email,
                 "password": data.password
             }
-            const response = await simplePost(postTags.editPassword, querryData);
+            const response = await simplePost(postTags.editPasswordWithoutToken, querryData);
             if (response?.code === 200) {
                 setAuthData({})
                 setStep('successReg')
@@ -51,7 +51,6 @@ const NewPasswordInput = ({ setStep, setAuthData, authData }) => {
             else {
                 setError("password", {message: `${response.message}`})
             }
-            console.log(response)
         }
         setIsQuerry(false)
     }

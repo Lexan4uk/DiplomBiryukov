@@ -2,6 +2,7 @@
 .profile-menu-popover {
     &_props {
         padding: 5px;
+        z-index: 2;
     }
     &__holder {
         background: var(--white);

@@ -17,7 +17,6 @@ const BoquetCard = ({ data }) => {
         const mediaQuery = window.matchMedia("(max-width: 768px)");
         const handleChange = () => setIsMobile(mediaQuery.matches);
         mediaQuery.addEventListener("change", handleChange);
-        console.log('бебебе')
         return () => mediaQuery.removeEventListener("change", handleChange);
     }, []);
 
