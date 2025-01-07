@@ -1,6 +1,102 @@
 .boquet-page {
-    
+    &_props {
+        width: 100%;
+    }
+
+    &__data {
+        white-space: pre-line;
+    }
+
+    &__main {
+        width: 100%;
+    }
+
+    &__content-holder {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 16px;
+    }
+
+    &__img-holder {
+        width: 100%;
+        aspect-ratio: 1/1;
+        position: relative;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__action-card {
+        padding: 6px 20px;
+        border-radius: 22px;
+        background: var(--light-red);
+        --iconcolor: var(--white);
+        width: fit-content;
+        align-items: center;
+    }
+
+    &__action-card-text {
+        color: var(--white);
+        line-height: 0;
+    }
+
+    &__boquet-promo-holder {
+        justify-content: space-between;
+        max-width: 350px;
+    }
+
+    &__boquet-price-holder {
+        align-items: end;
+    }
+    &__cart-block {
+        align-items: stretch;
+    }
+    &__counter-holder {
+        position: relative;
+    }
+    &__counter {
+        border-top: 1px solid var(--gray-text-active);
+        border-bottom: 1px solid var(--gray-text-active);
+        appearance: none;
+        height: 100%;
+        width: 50px;
+        text-align: center;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__counter-button {
+        border: 1px solid var(--gray-text-active) !important;
+        height: 100%;
+        padding: 5px !important;
+        &_left {
+            border-radius: 5px 0 0 5px;
+        }
+        &_right {
+            border-radius: 0 5px 5px 0;
+        }
+    }
 }
+
 @include media-down($px767) {
-    
+    .boquet-page {
+        &__content-holder {
+            grid-template-columns: 1fr;
+        }
+        &__content {
+            gap: 8px !important;
+        }
+        &__boquet-promo-holder {
+            gap: 20px;
+            justify-content: start;
+            max-width: 350px;
+        }
+    }
 }

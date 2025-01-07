@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import getSvg from '@images/svg'
 import { useState, useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
+import useCart from '@scripts/custom_hooks/useCart';
 
 
 const BoquetCard = ({ data }) => {
@@ -25,6 +26,9 @@ const BoquetCard = ({ data }) => {
         transform: isMobile || isHover ? 'scale(1)' : 'scale(0.5)',
         config: { tension: 220, friction: 12 },
     });
+    const {
+        addToCart
+      } = useCart()
 
     return (
         <div
@@ -36,9 +40,9 @@ const BoquetCard = ({ data }) => {
                 style={cartAnimation}
                 className="main-catalog__boquet-cart-button simple-button"
             >
-                <div className="main-catalog__boquet-cart-holder f-row">
+                <button className="main-catalog__boquet-cart-holder f-row simple-button" onClick={() => addToCart(data.price, 1, data.id, data.name)}>
                     {cart()}
-                </div>
+                </button>
             </animated.button>
             <Link to={data.link} className="main-catalog__boquet-link">
                 <div className="main-catalog__boquet-img-holder f-row">

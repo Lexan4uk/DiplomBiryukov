@@ -4,8 +4,6 @@
 
         * {
             color: var(--white);
-            --iconcolor: var(--white);
-
         }
 
     }
@@ -30,6 +28,7 @@
         border: 1px solid var(--white);
         border-radius: 6px;
         padding: 5px;
+        --iconcolor: var(--white);
     }
 
     &__addresses-link {
@@ -45,7 +44,33 @@
             background-color: var(--white);
         }
     }
+
+    &__cart-button {
+        padding: 10px;
+        border-radius: 22px;
+        background: var(--white);
+        --iconcolor: var(--green);
+        border: none;
+        width: fit-content;
+        align-items: center;
+        bottom: 8%;
+        right:8%;
+        z-index: 4;
+        position: fixed;
+        border-radius: 16px;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.4);
+        display: block;
+    }
+    &__cart-count {
+        position: absolute;
+        padding: 12px 10px;
+        border-radius: 100px;
+        background: var(--red);
+        line-height: 0 !important;
+        transform: translate(40%, -50%);
+    }
 }
+
 @include media-down($px426) {
     .footer {
         &__content {
@@ -54,6 +79,6 @@
             flex-wrap: nowrap;
         }
 
-        
+
     }
 }
