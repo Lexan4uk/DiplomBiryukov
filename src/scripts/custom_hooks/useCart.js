@@ -8,7 +8,6 @@ function useCart() {
   const [isCartActive, setIsCartActive] = useState(false)
   const [cartCount, setCartCount] = useState(0);
   useEffect(() => {
-    console.log(cartData)
     if (Object.keys(cartData).length) {
       setIsCartActive(true)
     }
@@ -24,9 +23,11 @@ function useCart() {
       if (newCart[id]) {
         newCart[id] = {
           ...newCart[id],
-          count: newCart[id].count + count
+          count: newCart[id].count + count,
+          total: newCart[id].total + price * count
         }
       } else {
+        console.log(price, count)
         newCart[id] = {
           name,
           price,
@@ -37,8 +38,18 @@ function useCart() {
       return newCart
     })
   }
+
+  const removeFromCart = (id) => {
+    setCartData((prev) => {
+      const newCart = {...prev}
+      delete newCart[id]
+      return newCart
+    })
+  }
+
   return {
     addToCart,
+    removeFromCart,
     cartData,
     isCartActive,
     cartCount

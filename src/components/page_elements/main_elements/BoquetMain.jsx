@@ -11,10 +11,6 @@ import { Grid } from 'swiper/modules';
 const BoquetMain = () => {
     const { data: boquets, error: bError, isLoading: bIsLoading } = useSWR(apiTags.getBoquetCompleted, simpleGet);
 
-    if (!bIsLoading) {
-        console.log(boquets)
-    }
-
     return (
         <div className="main-catalog__boquet-holder f-column gap-10">
             <h1 className="main-catalog__page-title title-l">Выбор букета</h1>

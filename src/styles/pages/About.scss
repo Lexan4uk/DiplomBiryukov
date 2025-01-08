@@ -1,0 +1,54 @@
+.about {
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__welcome {
+        text-align: center;
+        font-style: italic;
+    }
+
+    &__section {
+        padding: 20px 0;
+    }
+
+    &__subtitle {
+        color: var(--green);
+    }
+
+    &__text {
+        text-align: justify;
+    }
+}
+@include media-down($px426) {
+    .about {
+        .gap-16 {
+            gap: 8px;
+        }
+        .gap-10 {
+            gap: 4px;
+        }
+        &__section {
+            padding: 6px 0;
+        }
+
+        &__content {
+            max-width: 100%;
+            padding: 0 10px;
+        }
+
+        &__title {
+            margin-bottom: 6px;
+        }
+
+        &__welcome {
+            padding: 0 4px;
+        }
+    }
+}

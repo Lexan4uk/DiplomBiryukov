@@ -39,10 +39,11 @@ const BoquetCard = ({ data }) => {
             <animated.button
                 style={cartAnimation}
                 className="main-catalog__boquet-cart-button simple-button"
+                onClick={() => addToCart(data.price, 1, data.id, data.name)}
             >
-                <button className="main-catalog__boquet-cart-holder f-row simple-button" onClick={() => addToCart(data.price, 1, data.id, data.name)}>
+                <div className="main-catalog__boquet-cart-holder f-row">
                     {cart()}
-                </button>
+                </div>
             </animated.button>
             <Link to={data.link} className="main-catalog__boquet-link">
                 <div className="main-catalog__boquet-img-holder f-row">

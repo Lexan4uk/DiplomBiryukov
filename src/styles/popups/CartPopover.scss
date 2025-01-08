@@ -1,0 +1,46 @@
+
+.cart-popover {
+    &_props {
+        padding: 5px;
+        z-index: 2;
+    }
+    &__holder {
+        background: var(--white);
+        border-radius: 16px;
+        margin-top: 15px;
+        padding: 15px;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+    }
+    &__title {
+        text-align: center;
+    }
+    &__item {
+        border: 1px solid var(--light-border);
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 10px;
+        border-radius: 10px;
+    }
+    &__input-holder {
+        gap: 8px;
+        align-items: center;
+    }
+    &__input-text {
+        white-space: nowrap;
+    }
+    &__input-border {
+        border: 1px solid var(--light-border);
+        border-radius: 12px;
+        width: 100%;
+        padding: 8px;
+        --iconcolor: var(--gray-text-inactive);
+        position: relative;
+        border: 1px solid var(--green);
+        &_invalid {
+            border: 1px solid var(--red) !important;
+        }
+    }
+    &__input {
+        width: 100%;
+    }
+}

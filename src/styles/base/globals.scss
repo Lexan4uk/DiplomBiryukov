@@ -163,6 +163,9 @@ main {
   font-size: 16px;
   line-height: 24px;
 }
+button:focus {
+  outline: none;
+}
 
 .button {
   @extend .button-text;

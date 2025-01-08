@@ -2,6 +2,8 @@ import '@styles/Footer.scss';
 import getSvg from '@images/svg'
 import { Link } from 'react-router-dom';
 import useCart from '@scripts/custom_hooks/useCart';
+import CartPopover from "@components/popups/CartPopover"
+import { Popover, PopoverButton } from '@headlessui/react'
 
 function Footer() {
     const {
@@ -10,15 +12,21 @@ function Footer() {
     } = useCart()
 
     const {
-        phone
-    } = getSvg()
-    const {
+        phone,
         cart
     } = getSvg()
 
     return (
         <footer className="footer footer_bg">
-            {isCartActive && <button className='footer__cart-button'><span className='footer__cart-count text-s'>{cartCount}</span>{cart()}</button>}
+            {isCartActive &&
+                <Popover>
+                    <PopoverButton className='footer__cart-button'>
+                        <span className='footer__cart-count text-s'>{cartCount}</span>
+                        {cart()}
+                    </PopoverButton>
+                    <CartPopover />
+                </Popover>
+            }
             <div className="footer__container block-normalizer">
                 <div className="footer__content f-row">
                     <span className="footer__company-name text-l">© KurskFlora, 2022-2025</span>
