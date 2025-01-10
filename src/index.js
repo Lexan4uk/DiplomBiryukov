@@ -2,6 +2,8 @@ import Main_catalog from '@pages/Main_catalog';
 import Addresses from '@pages/Addresses';
 import Boquet_page from '@pages/Boquet_page';
 import About from '@pages/About';
+import Reviews from '@pages/Reviews';
+
 
 
 import React from 'react';
@@ -53,6 +55,7 @@ root.render(
             <Route path="/catalog/:link" element={<Boquet_page />} />
             <Route path="/addresses" element={<Addresses />} />
             <Route path="/about" element={<About />} />
+            <Route path="/reviews" element={<Reviews />} />
           </Routes>
         </Router>
       </ProcessAuth>

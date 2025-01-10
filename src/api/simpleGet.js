@@ -5,6 +5,7 @@ export const apiTags = {
     getBoquetCompleted: "boquets/getBoquetCompleted",
     getBoquetConstructor: "boquets/getBoquetConstructor",
     getBoquetByLink: (link) => `boquets/getBoquetByLink/${link}`,
+    getReviews: "reviews/getReviews"
 };
 
 export async function simpleGet(params) {

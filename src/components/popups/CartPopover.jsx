@@ -7,6 +7,7 @@ import useAuth from '@scripts/custom_hooks/useAuth';
 import { InputMask } from '@react-input/mask';
 import { useForm, FormProvider } from "react-hook-form";
 import { useEffect, useState } from 'react';
+import { simplePost, apiTags } from "@api/simplePost"
 
 const formatPhoneNumber = (phone) => {
   if (!phone) return "+7 (999) 999-99-99";
@@ -22,15 +23,34 @@ function CartPopover() {
     isCartActive,
     cartCount,
     cartData,
-    removeFromCart
+    removeFromCart,
+    clearCart
   } = useCart()
 
   const { accData } = useAuth();
   const [formattedPhone, setFormattedPhone] = useState(formatPhoneNumber(accData?.phoneNumber));
+  const [querry, setIsQuerry] = useState(false)
+  const [isQuerrySuccess, setIsQuerrySuccess] = useState(false)
+
+  useState(() => {
+    if (isQuerrySuccess)
+      setIsQuerrySuccess(false)
+  }, [isQuerrySuccess])
+
+  useEffect(() => {
+    if (isQuerrySuccess) {
+      const timer = setTimeout(() => {
+        setIsQuerrySuccess(false);
+        clearCart();
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isQuerrySuccess]);
+
   const methods = useForm({
     reValidateMode: 'onSubmit',
     defaultValues: {
-      phone: formattedPhone
+      phoneNumber: formattedPhone,
     }
   });
   const { handleSubmit, formState: { errors }, register, clearErrors, setValue, setError, trigger } = methods;
@@ -60,7 +80,22 @@ function CartPopover() {
 
 
   const onSubmit = async (data) => {
-    console.log(data)
+    setIsQuerry(true);
+    const cleanPhoneNumber = data.phoneNumber.replace(/\D/g, '').slice(1); // Remove non-digits and first '7'
+
+    const orderData = {
+      clientPhone: cleanPhoneNumber,
+      clientName: data.name,
+      boquetName: Object.values(cartData).map(item => item.name).join(', '),
+      boquetPrice: Object.values(cartData).reduce((sum, item) => sum + item.total, 0),
+      orderState: ""
+    };
+    const response = await simplePost(apiTags.addOrder, orderData);
+    if (response.code === 200) {
+      setIsQuerrySuccess(true);
+    }
+    console.log(response)
+    setIsQuerry(false);
   }
 
 
@@ -78,11 +113,11 @@ function CartPopover() {
             <div className="cart-popover__input-holder f-row ">
               <span className='cart-popover__input-text text-m'>Ваше имя</span>
               <div className={`cart-popover__input-border ${errors.name ? 'cart-popover__input-border_invalid' : ''}`}>
-                <input 
-                  className='cart-popover__input' 
+                <input
+                  className='cart-popover__input'
                   {...register("name", validationRules.name)}
-                  defaultValue={accData?.name} 
-                  maxLength={20} 
+                  defaultValue={accData?.name}
+                  maxLength={20}
                 />
               </div>
             </div>
@@ -114,7 +149,8 @@ function CartPopover() {
               </div>
             ))}
           </div>
-          <button className='cart-popover__sumbit-button profile-button' onClick={handleSaveClick}>Создать заказ</button>
+          <button className={`cart-popover__sumbit-button profile-button ${querry && "button-inactive"}`} onClick={handleSaveClick}>Создать заказ</button>
+          {isQuerrySuccess && <span className="cart-popover__success-text text-m text-green">Заказ успешно создан</span>}
         </div>
 
       </PopoverPanel>

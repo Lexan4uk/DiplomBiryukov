@@ -55,7 +55,6 @@ function ProfileName({ name }) {
         else {
             setError("name", {message: `${response.message}`})
         }
-        console.log(response)
         setIsQuerry(false)
     }
     return (

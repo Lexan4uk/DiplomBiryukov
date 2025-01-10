@@ -47,12 +47,17 @@ function useCart() {
     })
   }
 
+  const clearCart = () => {
+    setCartData({});
+  }
+
   return {
     addToCart,
     removeFromCart,
     cartData,
     isCartActive,
-    cartCount
+    cartCount,
+    clearCart
   };
 }
 
