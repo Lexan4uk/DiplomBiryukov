@@ -11,15 +11,15 @@ function useCart() {
     if (Object.keys(cartData).length) {
       setIsCartActive(true)
     }
-    else { 
+    else {
       setIsCartActive(false)
     }
     setCartCount(Object.keys(cartData).length)
   }, [cartData])
 
-  const addToCart = (price, count, id, name) => {
+  const addToCart = (price, count, id, name, cover) => {
     setCartData((prev) => {
-      const newCart = {...prev}
+      const newCart = { ...prev }
       if (newCart[id]) {
         newCart[id] = {
           ...newCart[id],
@@ -27,21 +27,22 @@ function useCart() {
           total: newCart[id].total + price * count
         }
       } else {
-        console.log(price, count)
         newCart[id] = {
           name,
           price,
           count,
-          total: price * count
+          total: price * count,
+          cover
         }
       }
+      console.log(newCart)
       return newCart
     })
   }
 
   const removeFromCart = (id) => {
     setCartData((prev) => {
-      const newCart = {...prev}
+      const newCart = { ...prev }
       delete newCart[id]
       return newCart
     })

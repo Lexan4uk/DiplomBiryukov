@@ -37,7 +37,7 @@ function Addresses() {
           <div className="addresses__delivery-block f-column gap-10">
             <h2 className="addresses__delivery-title title-l">Доставка</h2>
             <p className="addresses__delivery-text text-l">Служба доставки компании осуществляет доставку цветов и букетов в любое удобное для Вас время 365 дней в году, мы работаем без выходных и праздников. Мы готовы нести красоту и радость каждому, кто обратится к нам.</p>
-            <p className="addresses__delivery-text text-l">Оформить срочную или обычную заявку на доставку букета можно телефону, ежедневно с 9-00 до 21-00. Если стоимость заказа не менее 5000 рублей — доставка цветов бесплатная.</p>
+            <p className="addresses__delivery-text text-l">Оформить срочную или обычную заявку на доставку букета можно телефону, ежедневно с 9-00 до 21-00. Если стоимость заказа не менее 5000 рублей - доставка цветов бесплатная.</p>
             <h3 className="addresses__delivery-text title-s">Стоимость доставки заказа в пределах г. Курск:</h3>
             <div className="addresses__delivery-grid">
               <span className="addresses__delivery-grid-header address__delivery-grid-element title-s">Время доставки</span>

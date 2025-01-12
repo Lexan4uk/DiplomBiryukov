@@ -81,15 +81,17 @@ function CartPopover() {
 
   const onSubmit = async (data) => {
     setIsQuerry(true);
-    const cleanPhoneNumber = data.phoneNumber.replace(/\D/g, '').slice(1); // Remove non-digits and first '7'
+    const cleanPhoneNumber = data.phoneNumber.replace(/\D/g, '').slice(1);
 
     const orderData = {
       clientPhone: cleanPhoneNumber,
       clientName: data.name,
       boquetName: Object.values(cartData).map(item => item.name).join(', '),
       boquetPrice: Object.values(cartData).reduce((sum, item) => sum + item.total, 0),
-      orderState: ""
+      orderState: "",
+      cover: Object.values(cartData).map(item => item.cover).join(', ')
     };
+    console.log(orderData)
     const response = await simplePost(apiTags.addOrder, orderData);
     if (response.code === 200) {
       setIsQuerrySuccess(true);

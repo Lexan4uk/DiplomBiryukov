@@ -54,7 +54,7 @@ function Boquet_page() {
                   <input className='boquet-page__counter text-xl' readOnly value={count} type="number" />
                   <button className='boquet-page__counter-button boquet-page__counter-button_right simple-button' onClick={() => count < 99 && setCount(count + 1)}>{mini_plus()}</button>
                 </div>
-                <button className='boquet-page__cart-add profile-button profile-button' onClick={() => addToCart(bData.price, count, bData.id, bData.name)}>В корзину</button>
+                <button className='boquet-page__cart-add profile-button profile-button' onClick={() => addToCart(bData.price, count, bData.id, bData.name, bData.cover)}>В корзину</button>
               </div>
               <span className='boquet-page__description text-menu'>{bData?.description}</span>
               <div className="boquet-page__composition-holder f-column">

@@ -39,7 +39,7 @@ const BoquetCard = ({ data }) => {
             <animated.button
                 style={cartAnimation}
                 className="main-catalog__boquet-cart-button simple-button"
-                onClick={() => addToCart(data.price, 1, data.id, data.name)}
+                onClick={() => addToCart(data.price, 1, data.id, data.name, data.cover)}
             >
                 <div className="main-catalog__boquet-cart-holder f-row">
                     {cart()}
