@@ -8,7 +8,7 @@ const ReviewCard = ({ data, imgPlace = "right" }) => {
         quotes,
         star
     } = getSvg()
-    console.log(data)
+
     const images = data?.order?.cover ? data.order.cover.split(", ") : [];
 
     return (
@@ -17,7 +17,7 @@ const ReviewCard = ({ data, imgPlace = "right" }) => {
                 <div className="reviews__name-block f-row gap-10">
                     <h2 className='reviews__name text-menu'>{data.clientName}</h2>
                     <span className='reviews__boquet-name text-m reviews__gray-text'>-</span>
-                    <span className='reviews__boquet-name text-m reviews__gray-text'>{data.boquetName}</span>
+                    <span className='reviews__boquet-name-text text-m reviews__gray-text'>{data.boquetName}</span>
                 </div>
 
                 <div className="reviews__stars-holder f-row gap-4">
@@ -29,7 +29,7 @@ const ReviewCard = ({ data, imgPlace = "right" }) => {
                 </div>
                 <p className='reviews__review text-l'>{data.text}</p>
                 <div className="reviews__quotes">
-                    {quotes()}
+                    {quotes(undefined, undefined, undefined, "reviews__quotes-img")}
                 </div>
             </div>
             <div className="reviews__img-block">
