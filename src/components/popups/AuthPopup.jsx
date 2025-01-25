@@ -8,7 +8,7 @@ import NewPasswordInput from '@components/elements/auth_elements/NewPasswordInpu
 
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import getSvg from '@images/svg'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const AuthPopup = ({ state, loginSwitcher }) => {

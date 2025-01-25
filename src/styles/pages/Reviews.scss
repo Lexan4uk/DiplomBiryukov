@@ -1,10 +1,19 @@
 .reviews {
+    &__cards-holder {
+        align-items: center;
+    }
     &__review-card {
         max-width: 700px;
-
+        width: 100%;
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
         &_left {
             flex-direction: row-reverse;
         }
+    }
+    &__title-block {
+        justify-content: space-between;
+        align-items: center;
     }
 
     &__gray-text {
@@ -20,6 +29,7 @@
     &__name-block {
         align-items: flex-end;
     }
+
 
     &__img-block {
         width: 255px;
@@ -53,6 +63,11 @@
     &__add-review-block {
         overflow: hidden;
         text-align: center;
+    }
+
+    &__navigation {
+        justify-content: center;
+        margin-top: 20px;
     }
 }
 

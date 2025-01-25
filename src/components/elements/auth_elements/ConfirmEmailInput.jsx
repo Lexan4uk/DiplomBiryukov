@@ -1,7 +1,7 @@
 import '@styles/popups/AuthPopup.scss';
 import { useForm, FormProvider } from "react-hook-form";
 import { InputMask } from '@react-input/mask';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { sendCode } from '@scripts/helpers/sendCode'
 
 const ConfirmEmailInput = ({ setStep, setAuthData, authData, confirmType }) => {
@@ -17,15 +17,19 @@ const ConfirmEmailInput = ({ setStep, setAuthData, authData, confirmType }) => {
             }
         }
     };
-    let generatedCode = ''
-    useEffect(() => {
-        if (authData.email && generatedCode === '') {
-            generatedCode = sendCode(authData.email)
-        }
+    const [generatedCode, setGeneratedCode] = useState('');
+    const isCodeSent = useRef(false); // Флаг для контроля отправки кода
 
-    }, [authData])
+    useEffect(() => {
+        if (authData.email && !isCodeSent.current) {
+            const code = sendCode(authData.email);
+            setGeneratedCode(code);
+            isCodeSent.current = true; // Устанавливаем флаг, чтобы предотвратить повторную отправку
+        }
+    }, [authData.email]);
 
     const handleSaveClick = async () => {
+        clearErrors('verCode');
         const isValid = await trigger();
         if (isValid) {
             handleSubmit(onSubmit)();
@@ -35,13 +39,17 @@ const ConfirmEmailInput = ({ setStep, setAuthData, authData, confirmType }) => {
     const onSubmit = async (data) => {
 
         const cleanedCode = data.verCode.replace(/\s|_/g, '');
+        console.log(generatedCode)
         if (cleanedCode === generatedCode) {
+            console.log(confirmType)
             setAuthData({ email: authData.email })
             switch (confirmType) {
                 case ("confirmReg"):
                     setStep("regPassword")
+                    return
                 case ("forgotPassword"):
                     setStep("newPassword")
+                    return
                 default:
                     return
             }

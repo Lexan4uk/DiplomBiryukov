@@ -213,6 +213,12 @@ const getSvg = () => {
                 <path fill={fill} d="M15.2377 14.13L9.46265 19.905L11.1123 21.5547L18.537 14.13L11.1123 6.70535L9.46266 8.35619L15.2377 14.1312L15.2377 14.13Z" />
             </svg>)
     }
+    const arrow_left = (fill = "var(--iconcolor)", height = 28, width = 28, customclass = "") => {
+        return (
+            <svg className={`custom-svg ${customclass}`} width={width} height={height} viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.762 14.13L18.537 19.905L16.8873 21.5547L9.46265 14.13L16.8873 6.70535L18.537 8.35619L12.762 14.1312L12.762 14.13Z" fill={fill} />
+            </svg>)
+    }
     const clock = (fill = "var(--iconcolor)", height = 24, width = 24, customclass = "") => {
         return (
             <svg className={`custom-svg ${customclass}`} width={width} height={height} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -256,7 +262,7 @@ const getSvg = () => {
     const star = (fill = "var(--iconcolor)", height = 15, width = 16, customclass = "") => {
         return (
             <svg className={`custom-svg ${customclass}`} width={width} height={height} viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.08203 1.24219L5.30469 4.87891L1.28516 5.45312C0.574219 5.5625 0.300781 6.4375 0.820312 6.95703L3.69141 9.77344L3.00781 13.7383C2.89844 14.4492 3.66406 14.9961 4.29297 14.668L7.875 12.7812L11.4297 14.668C12.0586 14.9961 12.8242 14.4492 12.7148 13.7383L12.0312 9.77344L14.9023 6.95703C15.4219 6.4375 15.1484 5.5625 14.4375 5.45312L10.4453 4.87891L8.64062 1.24219C8.33984 0.613281 7.41016 0.585938 7.08203 1.24219Z" fill="#4BB45E" />
+                <path d="M7.08203 1.24219L5.30469 4.87891L1.28516 5.45312C0.574219 5.5625 0.300781 6.4375 0.820312 6.95703L3.69141 9.77344L3.00781 13.7383C2.89844 14.4492 3.66406 14.9961 4.29297 14.668L7.875 12.7812L11.4297 14.668C12.0586 14.9961 12.8242 14.4492 12.7148 13.7383L12.0312 9.77344L14.9023 6.95703C15.4219 6.4375 15.1484 5.5625 14.4375 5.45312L10.4453 4.87891L8.64062 1.24219C8.33984 0.613281 7.41016 0.585938 7.08203 1.24219Z" fill={fill} />
             </svg>
         )
     }
@@ -286,6 +292,7 @@ const getSvg = () => {
         door,
         pen,
         arrow_right,
+        arrow_left,
         clock,
         phone,
         done,

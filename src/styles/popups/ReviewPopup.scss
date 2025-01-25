@@ -1,0 +1,140 @@
+.review-popup {
+    &_bg {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    &__main {
+        background: var(--white);
+        padding: 20px;
+        border-radius: 16px;
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    &__close-btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    &__input-block {
+        width: 100%;
+    }
+
+    &__order-btn {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        transition: all 0.2s;
+        border-radius: 8px;
+    }
+
+    &__rating {
+        justify-content: center;
+    }
+
+    &__input-holder {
+        width: 100%;
+    }
+
+    &__input {
+        width: 100%;
+        height: 100px;
+        resize: none;
+        border: 1px solid var(--light-border);
+        border-radius: 8px;
+        padding: 10px;
+
+        &:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+    }
+
+    &__submit-button {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+@include media-down($px767) {
+    .review-popup {
+
+        &__main {
+            max-width: 350px;
+            padding: 15px;
+        }
+
+        &__close-btn,
+        &__back-btn {
+            top: 15px;
+        }
+
+        &__title {
+            margin-bottom: 15px;
+        }
+
+        &__order-btn {
+            padding: 8px;
+        }
+
+        &__input {
+            height: 80px;
+            padding: 8px;
+        }
+
+        &__submit-button {
+            margin-top: 15px;
+        }
+    }
+}
+
+@include media-down($px426) {
+    .review-popup {
+        &__main {
+            max-width: 300px;
+            padding: 12px;
+        }
+
+        &__close-btn,
+        &__back-btn {
+            top: 12px;
+        }
+
+        &__title {
+            margin-bottom: 12px;
+        }
+
+        &__order-btn {
+            padding: 6px;
+        }
+
+        &__input {
+            height: 60px;
+            padding: 6px;
+        }
+
+        &__submit-button {
+            margin-top: 12px;
+        }
+
+        &__rating {
+            gap: 2px;
+        }
+    }
+}
