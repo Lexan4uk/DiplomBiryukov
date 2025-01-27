@@ -10,6 +10,9 @@ export const apiTags = {
     editPasswordWithoutToken: "accounts/editPasswordWithoutToken",
     addOrder: "orders/addOrder",
     addReview: "reviews/addReview",
+    adminLogin: "admin/login",
+    addBoquet: "boquets/addBoquet",
+    addAddress: "addresses/addAddress",
 };
 
 export async function simplePost(path, data) {

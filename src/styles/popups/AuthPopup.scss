@@ -1,6 +1,7 @@
 .auth-popup {
     &_bg {
         position: fixed;
+        display: flex;
         left: 0;
         right: 0;
         bottom: 0;
@@ -56,6 +57,8 @@
     &__input {
         width: 100%;
         margin-right: 20px;
+        border: none;
+        resize: none;
         &:focus {
             outline: none;
         }

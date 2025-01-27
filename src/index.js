@@ -3,6 +3,7 @@ import Addresses from '@pages/Addresses';
 import Boquet_page from '@pages/Boquet_page';
 import About from '@pages/About';
 import Reviews from '@pages/Reviews';
+import AdminPage from '@pages/AdminPage';
 
 
 
@@ -56,6 +57,7 @@ root.render(
             <Route path="/addresses" element={<Addresses />} />
             <Route path="/about" element={<About />} />
             <Route path="/reviews" element={<Reviews />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </Router>
       </ProcessAuth>

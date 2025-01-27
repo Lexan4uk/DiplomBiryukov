@@ -209,7 +209,10 @@ button:focus {
   border-radius: 8px;
   padding: 8px 16px;
 }
-
+.input-disabled {
+  background-color: var(--gray-bg);
+  cursor: not-allowed;
+}
 @include media-down($px770) {
   .title-l {
     font-family: 'Bender';
