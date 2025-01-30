@@ -103,7 +103,7 @@ const ReviewPopup = ({ state, setState }) => {
                                 ))
                             ) : (
                                 <p className="review-popup__empty-text text-m text-center">
-                                    Нет доступных товаров для отзыва
+                                    Нет доступных заказов для отзыва
                                 </p>
                             )}
                         </div>

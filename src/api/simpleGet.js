@@ -7,6 +7,8 @@ export const apiTags = {
     getBoquetByLink: (link) => `boquets/getBoquetByLink/${link}`,
     getReviews: "reviews/getReviews",
     getOrdersDone: (name) => `orders/getOrdersDone/${name}`,
+    getOrders: "orders/getOrders",
+    getReviewsApproved: "reviews/getReviewsApproved",
 };
 
 export async function simpleGet(params) {

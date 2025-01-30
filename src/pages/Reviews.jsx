@@ -30,7 +30,7 @@ function Reviews() {
     isAuthorised
   } = useAuth();
 
-  const { data: reviews, error: rError, isLoading: rIsLoading } = useSWR(apiTags.getReviews, simpleGet);
+  const { data: reviews, error: rError, isLoading: rIsLoading } = useSWR(apiTags.getReviewsApproved, simpleGet);
 
   return (
     <>
