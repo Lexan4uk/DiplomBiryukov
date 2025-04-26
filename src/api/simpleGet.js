@@ -8,6 +8,7 @@ export const apiTags = {
 	getOrdersDone: name => `orders/getOrdersDone/${name}`,
 	getOrders: 'orders/getOrders',
 	getReviewsApproved: 'reviews/getReviewsApproved',
+	getNews: 'news/getNews',
 }
 
 export async function simpleGet(params) {
