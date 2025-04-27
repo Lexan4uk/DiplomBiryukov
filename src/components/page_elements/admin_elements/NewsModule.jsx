@@ -52,44 +52,52 @@ const NewsModule = () => {
 						<tr>
 							<th>Изображение</th>
 							<th>Заголовок</th>
+							<th>Приоритет</th>
 							<th>Текст</th>
 							<th>Действия</th>
 						</tr>
 					</thead>
 					<tbody>
-						{news?.map(newsItem => (
-							<tr key={newsItem.id}>
-								<td>
-									<div className='news-module__image-wrapper'>
-										<img
-											src={newsItem.imgUrl}
-											alt={newsItem.title}
-											className='news-module__image'
-										/>
-									</div>
-								</td>
-								<td>{newsItem.title}</td>
-								<td>
-									<div className='news-module__text'>{newsItem.text}</div>
-								</td>
-								<td>
-									<div className='news-module__actions f-column gap-10'>
-										<button
-											className='news-module__edit profile-button'
-											onClick={() => handleEdit(newsItem)}
-										>
-											Изменить
-										</button>
-										<button
-											className='news-module__delete profile-button'
-											onClick={() => handleDelete(newsItem.id)}
-										>
-											Удалить
-										</button>
-									</div>
-								</td>
-							</tr>
-						))}
+						{news
+							?.sort((a, b) => {
+								const priorityA = a.priority === null ? Infinity : a.priority
+								const priorityB = b.priority === null ? Infinity : b.priority
+								return priorityA - priorityB
+							})
+							.map(newsItem => (
+								<tr key={newsItem.id}>
+									<td>
+										<div className='news-module__image-wrapper'>
+											<img
+												src={newsItem.imgUrl}
+												alt={newsItem.title}
+												className='news-module__image'
+											/>
+										</div>
+									</td>
+									<td>{newsItem.title}</td>
+									<td>{newsItem.priority ?? 'Не задан'}</td>
+									<td>
+										<div className='news-module__text'>{newsItem.text}</div>
+									</td>
+									<td>
+										<div className='news-module__actions f-column gap-10'>
+											<button
+												className='news-module__edit profile-button'
+												onClick={() => handleEdit(newsItem)}
+											>
+												Изменить
+											</button>
+											<button
+												className='news-module__delete profile-button'
+												onClick={() => handleDelete(newsItem.id)}
+											>
+												Удалить
+											</button>
+										</div>
+									</td>
+								</tr>
+							))}
 					</tbody>
 				</table>
 			</div>

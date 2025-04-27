@@ -15,6 +15,7 @@ const NewsPopup = ({ news, onClose, onSuccess }) => {
 			title: news?.title || '',
 			imgUrl: news?.imgUrl || '',
 			text: news?.text || '',
+			priority: news?.priority || '',
 		},
 	})
 
@@ -24,11 +25,17 @@ const NewsPopup = ({ news, onClose, onSuccess }) => {
 	const onSubmit = async data => {
 		setIsLoading(true)
 		try {
+			// Преобразуем priority в число или null
+			const formattedData = {
+				...data,
+				priority: data.priority === '' ? null : parseInt(data.priority),
+			}
+
 			let response
 			if (news) {
-				response = await simplePut(putTags.updateNews(news.id), data)
+				response = await simplePut(putTags.updateNews(news.id), formattedData)
 			} else {
-				response = await simplePost(postTags.addNews, data)
+				response = await simplePost(postTags.addNews, formattedData)
 			}
 
 			if (response.code === 200) {
@@ -83,6 +90,30 @@ const NewsPopup = ({ news, onClose, onSuccess }) => {
 							{errors.imgUrl && (
 								<span className='auth-popup__error text-s text-red'>
 									{errors.imgUrl.message}
+								</span>
+							)}
+						</div>
+						<div className='auth-popup__input-block f-column gap-4'>
+							<input
+								{...register('priority', {
+									validate: {
+										isValidNumber: value => {
+											if (value === '') return true
+											const num = parseInt(value)
+											return (
+												(!isNaN(num) && num >= 0) ||
+												'Приоритет должен быть положительным числом'
+											)
+										},
+									},
+								})}
+								className='auth-popup__input text-m'
+								type='text'
+								placeholder='Приоритет (необязательно)'
+							/>
+							{errors.priority && (
+								<span className='auth-popup__error text-s text-red'>
+									{errors.priority.message}
 								</span>
 							)}
 						</div>

@@ -11,14 +11,21 @@ function News() {
 		isLoading: newsIsLoading,
 	} = useSWR(apiTags.getNews, simpleGet)
 
-	const latestNews = news?.slice(-4).reverse()
+	const sortedNews = news?.sort((a, b) => {
+		// Если priority null, считаем его как самый низкий приоритет (большое число)
+		const priorityA = a.priority === null ? Infinity : a.priority
+		const priorityB = b.priority === null ? Infinity : b.priority
+		return priorityA - priorityB
+	})
+
+	const latestNews = sortedNews?.slice(0, 4)
 
 	return (
 		<>
 			<Header active={5} />
 			<main className='news block-normalizer main-block'>
 				<div className='news__content'>
-					<h1 className='news__title title-l text-green'>Последние новости</h1>
+					<h1 className='news__title title-l'>Последние новости</h1>
 					<div className='news__grid'>
 						{latestNews?.map(item => (
 							<div key={item.id} className='news__card'>

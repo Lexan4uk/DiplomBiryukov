@@ -359,12 +359,8 @@
 	}
 
 	&__delete {
-		background: var(--light-red);
+		background: var(--light-red) !important;
 		color: var(--white);
-
-		&:hover {
-			background: var(--red);
-		}
 	}
 }
 
