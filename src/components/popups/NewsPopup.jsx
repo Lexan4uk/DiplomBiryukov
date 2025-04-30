@@ -65,7 +65,7 @@ const NewsPopup = ({ news, onClose, onSuccess }) => {
 						onSubmit={handleSubmit(onSubmit)}
 						className='auth-popup__form f-column gap-10'
 					>
-						<div className='auth-popup__input-block f-column gap-4'>
+						<div className='auth-popup__input-block-news f-column gap-4'>
 							<input
 								{...register('title', { required: 'Заголовок обязателен' })}
 								className='auth-popup__input text-m'
@@ -78,7 +78,7 @@ const NewsPopup = ({ news, onClose, onSuccess }) => {
 								</span>
 							)}
 						</div>
-						<div className='auth-popup__input-block f-column gap-4'>
+						<div className='auth-popup__input-block-news f-column gap-4'>
 							<input
 								{...register('imgUrl', {
 									required: 'URL изображения обязателен',
@@ -93,7 +93,7 @@ const NewsPopup = ({ news, onClose, onSuccess }) => {
 								</span>
 							)}
 						</div>
-						<div className='auth-popup__input-block f-column gap-4'>
+						<div className='auth-popup__input-block-news f-column gap-4'>
 							<input
 								{...register('priority', {
 									validate: {
@@ -117,7 +117,7 @@ const NewsPopup = ({ news, onClose, onSuccess }) => {
 								</span>
 							)}
 						</div>
-						<div className='auth-popup__input-block f-column gap-4'>
+						<div className='auth-popup__input-block-news f-column gap-4'>
 							<textarea
 								{...register('text', { required: 'Текст новости обязателен' })}
 								className='auth-popup__textarea text-m'
