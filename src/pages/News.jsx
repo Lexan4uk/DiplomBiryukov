@@ -12,7 +12,6 @@ function News() {
 	} = useSWR(apiTags.getNews, simpleGet)
 
 	const sortedNews = news?.sort((a, b) => {
-		// Если priority null, считаем его как самый низкий приоритет (большое число)
 		const priorityA = a.priority === null ? Infinity : a.priority
 		const priorityB = b.priority === null ? Infinity : b.priority
 		return priorityA - priorityB

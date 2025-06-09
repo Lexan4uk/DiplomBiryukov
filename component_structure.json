@@ -1,0 +1,368 @@
+{
+	"drawio": {
+		"diagram": {
+			"name": "КурскФлора Component Diagram",
+			"elements": [
+				{
+					"id": "root",
+					"name": "КурскФлора",
+					"type": "group",
+					"children": [
+						{
+							"id": "src",
+							"name": "src",
+							"type": "group",
+							"children": [
+								{
+									"id": "api",
+									"name": "api",
+									"type": "group",
+									"children": [
+										{ "id": "api", "name": "api.js", "type": "component" },
+										{ "id": "login", "name": "login.js", "type": "component" },
+										{
+											"id": "simpleDelete",
+											"name": "simpleDelete.js",
+											"type": "component"
+										},
+										{
+											"id": "simpleGet",
+											"name": "simpleGet.js",
+											"type": "component"
+										},
+										{
+											"id": "simplePatch",
+											"name": "simplePatch.js",
+											"type": "component"
+										},
+										{
+											"id": "simplePost",
+											"name": "simplePost.js",
+											"type": "component"
+										},
+										{
+											"id": "simplePut",
+											"name": "simplePut.js",
+											"type": "component"
+										}
+									]
+								},
+								{
+									"id": "components",
+									"name": "components",
+									"type": "group",
+									"children": [
+										{
+											"id": "footer",
+											"name": "Footer.jsx",
+											"type": "component"
+										},
+										{
+											"id": "header",
+											"name": "Header.jsx",
+											"type": "component"
+										},
+										{
+											"id": "elements",
+											"name": "elements",
+											"type": "group",
+											"children": [
+												{
+													"id": "auth_elements",
+													"name": "auth_elements",
+													"type": "group",
+													"children": [
+														{
+															"id": "confirmEmailInput",
+															"name": "ConfirmEmailInput.jsx",
+															"type": "component"
+														}
+													]
+												},
+												{
+													"id": "profile_menu_elements",
+													"name": "profile_menu_elements",
+													"type": "component"
+												}
+											]
+										},
+										{
+											"id": "page_elements",
+											"name": "page_elements",
+											"type": "group",
+											"children": [
+												{
+													"id": "admin_elements",
+													"name": "admin_elements",
+													"type": "component"
+												},
+												{
+													"id": "adresses_elements",
+													"name": "adresses_elements",
+													"type": "component"
+												},
+												{
+													"id": "boquet_elements",
+													"name": "boquet_elements",
+													"type": "component"
+												},
+												{
+													"id": "header_elements",
+													"name": "header_elements",
+													"type": "component"
+												},
+												{
+													"id": "main_elements",
+													"name": "main_elements",
+													"type": "component"
+												},
+												{
+													"id": "reviews_elements",
+													"name": "reviews_elements",
+													"type": "component"
+												}
+											]
+										},
+										{
+											"id": "popups",
+											"name": "popups",
+											"type": "group",
+											"children": [
+												{
+													"id": "addressPopup",
+													"name": "AddressPopup.jsx",
+													"type": "component"
+												},
+												{
+													"id": "authPopup",
+													"name": "AuthPopup.jsx",
+													"type": "component"
+												},
+												{
+													"id": "boquetPopup",
+													"name": "BoquetPopup.jsx",
+													"type": "component"
+												},
+												{
+													"id": "cartPopover",
+													"name": "CartPopover.jsx",
+													"type": "component"
+												},
+												{
+													"id": "mobMenuPopup",
+													"name": "MobMenuPopup.jsx",
+													"type": "component"
+												},
+												{
+													"id": "newsPopup",
+													"name": "NewsPopup.jsx",
+													"type": "component"
+												},
+												{
+													"id": "profileMenuPopover",
+													"name": "ProfileMenuPopover.jsx",
+													"type": "component"
+												},
+												{
+													"id": "reviewPopup",
+													"name": "ReviewPopup.jsx",
+													"type": "component"
+												}
+											]
+										}
+									]
+								},
+								{
+									"id": "images",
+									"name": "images",
+									"type": "group",
+									"children": [
+										{ "id": "svg", "name": "svg.js", "type": "component" },
+										{
+											"id": "header",
+											"name": "header",
+											"type": "group",
+											"children": [
+												{
+													"id": "logo",
+													"name": "logo.png",
+													"type": "component"
+												}
+											]
+										}
+									]
+								},
+								{
+									"id": "pages",
+									"name": "pages",
+									"type": "group",
+									"children": [
+										{ "id": "about", "name": "About.jsx", "type": "component" },
+										{
+											"id": "addresses",
+											"name": "Addresses.jsx",
+											"type": "component"
+										},
+										{
+											"id": "adminPage",
+											"name": "AdminPage.jsx",
+											"type": "component"
+										},
+										{
+											"id": "boquetPage",
+											"name": "Boquet_page.jsx",
+											"type": "component"
+										},
+										{
+											"id": "mainCatalog",
+											"name": "Main_catalog.jsx",
+											"type": "component"
+										},
+										{ "id": "news", "name": "News.jsx", "type": "component" },
+										{
+											"id": "reviews",
+											"name": "Reviews.jsx",
+											"type": "component"
+										}
+									]
+								},
+								{
+									"id": "scripts",
+									"name": "scripts",
+									"type": "group",
+									"children": [
+										{
+											"id": "atoms",
+											"name": "atoms",
+											"type": "group",
+											"children": [
+												{
+													"id": "accDataAtom",
+													"name": "accDataAtom.js",
+													"type": "component"
+												},
+												{
+													"id": "authState",
+													"name": "authState.js",
+													"type": "component"
+												},
+												{
+													"id": "cartAtom",
+													"name": "cartAtom.js",
+													"type": "component"
+												}
+											]
+										},
+										{
+											"id": "custom_hooks",
+											"name": "custom_hooks",
+											"type": "group",
+											"children": [
+												{
+													"id": "useAuth",
+													"name": "useAuth.js",
+													"type": "component"
+												},
+												{
+													"id": "useCart",
+													"name": "useCart.js",
+													"type": "component"
+												}
+											]
+										},
+										{
+											"id": "helpers",
+											"name": "helpers",
+											"type": "group",
+											"children": [
+												{
+													"id": "sendCode",
+													"name": "sendCode.js",
+													"type": "component"
+												}
+											]
+										}
+									]
+								},
+								{
+									"id": "styles",
+									"name": "styles",
+									"type": "group",
+									"children": [
+										{
+											"id": "footer",
+											"name": "Footer.scss",
+											"type": "component"
+										},
+										{
+											"id": "header",
+											"name": "Header.scss",
+											"type": "component"
+										},
+										{
+											"id": "base",
+											"name": "base",
+											"type": "group",
+											"children": [
+												{
+													"id": "globals",
+													"name": "globals.scss",
+													"type": "component"
+												},
+												{
+													"id": "mixins",
+													"name": "mixins.scss",
+													"type": "component"
+												},
+												{
+													"id": "normalize",
+													"name": "normalize.scss",
+													"type": "component"
+												},
+												{
+													"id": "variables",
+													"name": "variables.scss",
+													"type": "component"
+												}
+											]
+										},
+										{
+											"id": "fonts",
+											"name": "fonts",
+											"type": "group",
+											"children": [
+												{
+													"id": "Bender-Black",
+													"name": "Bender-Black.eot",
+													"type": "component"
+												},
+												{
+													"id": "Bender-Black",
+													"name": "Bender-Black.ttf",
+													"type": "component"
+												},
+												{
+													"id": "Bender-Black",
+													"name": "Bender-Black.woff",
+													"type": "component"
+												},
+												{
+													"id": "Bender-Black",
+													"name": "Bender-Black.woff2",
+													"type": "component"
+												}
+											]
+										},
+										{ "id": "other", "name": "other", "type": "component" },
+										{ "id": "pages", "name": "pages", "type": "component" },
+										{ "id": "popups", "name": "popups", "type": "component" }
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}
